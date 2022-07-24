@@ -1,0 +1,37 @@
+{
+	"name": "svelte-typescript-go",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "vite dev -port 3000",
+		"build": "vite build",
+		"package": "svelte-kit package",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "eslint .",
+		"setup": "npm install && npm run build && go get ./...",
+		"start": "open-cli http://localhost:8080 && go run .",
+		"docker": "docker build . -t svelte-ts-go -f Dockerfile && open-cli http://localhost:8080 && docker run -p 8080:8080 --rm svelte-ts-go"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-static": "next",
+		"@sveltejs/kit": "next",
+		"@typescript-eslint/eslint-plugin": "^5.27.0",
+		"@typescript-eslint/parser": "^5.27.0",
+		"eslint": "^8.16.0",
+		"eslint-plugin-svelte3": "^4.0.0",
+		"open-cli": "^7.0.1",
+		"svelte": "^3.44.0",
+		"svelte-check": "^2.7.1",
+		"svelte-preprocess": "^4.10.6",
+		"tslib": "^2.3.1",
+		"typescript": "^4.7.4",
+		"vite": "^3.0.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"axios": "^0.27.2",
+		"bootstrap": "^5.2.0"
+	}
+}
