@@ -12,7 +12,6 @@ COPY static /usr/src/svelteapp/static
 COPY *.js /usr/src/svelteapp/
 COPY *.ts /usr/src/svelteapp/
 COPY *.json /usr/src/svelteapp/
-
 RUN npm install
 RUN npm run build
 

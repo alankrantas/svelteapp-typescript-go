@@ -102,6 +102,6 @@ git init
 git add .
 git commit -m "Updating"
 git remote add origin https://github.com/alankrantas/svelteapp-typescript-go.git
-git pull origin master
+git pull origin master --allow-unrelated-histories
 git push origin master
 ```
