@@ -4,7 +4,7 @@ export interface Product {
 	description: string;
 	category: string;
 	price: number;
-};
+}
 
 export class OrderLine {
 	constructor(public product: Product, public quantity: number) {}

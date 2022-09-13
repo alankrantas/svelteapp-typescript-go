@@ -10,7 +10,7 @@
 
 	const handleAddToCart = () => {
 		dispatch('addToCart', new OrderLine(product, Number(quantity)));
-	}
+	};
 </script>
 
 <div class="card m-1 p-1 bg-light">

@@ -6,7 +6,7 @@
 
 	let ready = false;
 	onMount(() => (ready = true));
-	
+
 	let id: string = $page.params.id;
 </script>
 

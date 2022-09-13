@@ -7,7 +7,7 @@
 		new HttpHandler().storeOrder($order).then((id) => {
 			location.href = `/summary/${id}`;
 		});
-	}
+	};
 </script>
 
 <div>

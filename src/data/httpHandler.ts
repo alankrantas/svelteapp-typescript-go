@@ -2,8 +2,8 @@ import type { Product, Order } from './entities';
 import Axios from 'axios';
 
 const urls = {
-	products: "/api/products",
-	orders: "/api/orders"
+	products: '/api/products',
+	orders: '/api/orders'
 };
 
 export class HttpHandler {
@@ -20,7 +20,7 @@ export class HttpHandler {
 				quantity: ol.quantity
 			}))
 		};
-		const response = await Axios.post<{ id: number; }>(urls.orders, orderData);
+		const response = await Axios.post<{ id: number }>(urls.orders, orderData);
 		return response.data.id;
 	}
 }
