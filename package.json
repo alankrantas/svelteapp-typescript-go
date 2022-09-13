@@ -4,19 +4,21 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev --port 3000",
-		"build": "vite build",
+		"build": "vite build && go build .",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"setup": "npm install && npm run build && go get ./...",
-		"start": "open-cli http://localhost:8080 && go run .",
-		"docker": "docker build . -t svelte-ts-go -f Dockerfile && open-cli http://localhost:8080 && docker run -p 8080:8080 --rm svelte-ts-go"
+		"serve": "open-cli http://localhost:8080 && main",
+		"start": "npm run build && npm run serve",
+		"docker": "docker build . -t svelte-ts-go -f Dockerfile && open-cli http://localhost:8080 && docker run -p 8080:8080 --rm svelte-ts-go",
+		"commit": "git add . && git commit -m \"Updating\" && git push origin master"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-static": "next",
-		"@sveltejs/kit": "next",
+		"@sveltejs/adapter-static": "^1.0.0-next.43",
+		"@sveltejs/kit": "^1.0.0-next.481",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
 		"eslint": "^8.16.0",
@@ -30,7 +32,7 @@
 		"svelte-preprocess": "^4.10.6",
 		"tslib": "^2.3.1",
 		"typescript": "^4.7.4",
-		"vite": "^3.1.0-beta.1"
+		"vite": "^3.1.0"
 	},
 	"type": "module",
 	"dependencies": {
