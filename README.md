@@ -14,33 +14,43 @@ Right now, like all the original examples, the app only reads product lists and 
 
 For local environment, you need
 
-* [Node.js](https://nodejs.org/en/download/)
-* [Golang](https://go.dev/dl/)
-* [Git](https://git-scm.com/download/win).
+- [Node.js](https://nodejs.org/en/download/)
+- [Golang](https://go.dev/dl/)
+- [Git](https://git-scm.com/download/win).
 
-### ```npm run setup```
+### `npm run setup`
 
 Install Svelte and Golang app dependencies.
 
 ```bash
-npm install
+npm i
 npm prune
 go get ./...
 go mod tidy
 ```
 
-### ```npm run build```
+### `npm run upgrade-all`
+
+Upgrade all NPM packages using `npm-check-updates`:
+
+```
+npx npm-check-updates -u
+npm install
+npm prune
+```
+
+### `npm run build`
 
 Build Svelte production and Golang executable binary.
 
 ```bash
-vite build
+npx vite build
 go build .
 ```
 
-### ```npm run serve```
+### `npm run serve`
 
-Start a server at ```http://localhost:8080```.
+Start a server at `http://localhost:8080`.
 
 ```bash
 ./main
@@ -52,13 +62,13 @@ You can change the host and port as
 ./main -host 127.0.0.1 -port 8080
 ```
 
-### ```npm start```
+### `npm start`
 
 Run all the scripts above.
 
 ## Generate and Run in Docker
 
-### ```npm run docker```
+### `npm run docker`
 
 Generate a Docker image then run it.
 
@@ -71,12 +81,11 @@ docker run -p 8080:8080 --rm svelte-ts-go
 
 ```bash
 git clone https://github.com/alankrantas/svelteapp-typescript-go.git
-git init
+git pull origin master
 git add .
 git commit -m "Updating"
 git remote add origin https://github.com/alankrantas/svelteapp-typescript-go.git
-git pull origin master --allow-unrelated-histories
 git push origin master
 ```
 
-After that, simply run ```npm run commit``` to commit changes.
+After that, simply run `npm run commit` to commit changes.

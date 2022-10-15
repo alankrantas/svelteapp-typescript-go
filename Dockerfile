@@ -2,34 +2,29 @@
 # svelte-builder
 #
 
-FROM node:alpine as svelte-builder
+FROM node:alpine as app-builder
 
-RUN mkdir -p /usr/src/svelteapp
-WORKDIR /usr/src/svelteapp
+WORKDIR /app
+COPY . /app
 
-COPY src /usr/src/svelteapp/src
-COPY static /usr/src/svelteapp/static
-COPY *.js /usr/src/svelteapp/
-COPY *.ts /usr/src/svelteapp/
-COPY *.json /usr/src/svelteapp/
 RUN npm install
-RUN npm run build
+RUN npx vite build
 
 #
-# go-builder
+# server-builder (CGO is required)
 #
 
-FROM golang:alpine as go-builder
+FROM golang:alpine as server-builder
 
 RUN apk add build-base
-RUN mkdir -p /usr/src/goapp
-WORKDIR /usr/src/goapp
 
-COPY backend /usr/src/goapp/backend
-COPY go.* /usr/src/goapp
-COPY *.go /usr/src/goapp
+WORKDIR /app
 
-RUN go build .
+COPY backend /app/backend
+COPY go.* /app
+COPY *.go /app
+
+RUN go build -mod=readonly -v
 
 #
 # deploy
@@ -37,14 +32,10 @@ RUN go build .
 
 FROM alpine as deploy
 
-RUN mkdir -p /usr/src/svelte-go-app
-RUN mkdir -p /usr/src/svelte-go-app/backend
-RUN mkdir -p /usr/src/svelte-go-app/build
-WORKDIR /usr/src/svelte-go-app
+WORKDIR /app
 
-COPY --from=svelte-builder /usr/src/svelteapp/build /usr/src/svelte-go-app/build
-COPY --from=go-builder /usr/src/goapp/main /usr/src/svelte-go-app
-COPY --from=go-builder /usr/src/goapp/backend/data.sqlite3 /usr/src/svelte-go-app/backend
+COPY --from=app-builder /app/build /app/build
+COPY --from=server-builder /app /app
 
 EXPOSE 8080
 

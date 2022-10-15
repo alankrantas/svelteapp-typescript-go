@@ -1,9 +1,10 @@
 {
 	"name": "scelteapp-typescript-go",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"setup": "npm install && npm prune && go get ./... && go mod tidy",
+		"upgrade-all": "npx npm-check-updates -u && npm install && npm prune",
 		"dev": "vite dev",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -14,29 +15,30 @@
 		"serve": "open-cli http://localhost:8080 && main",
 		"start": "npm run setup && npm run build && npm run serve",
 		"docker": "docker build . -t svelte-ts-go -f Dockerfile && open-cli http://localhost:8080 && docker run -p 8080:8080 --rm svelte-ts-go",
-		"commit": "git add . && git commit -m \"Updating\" && git push origin master"
+		"commit": "git pull origin master && git add . && git commit -m \"Updating\" && git push origin master"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-static": "^1.0.0-next.43",
-		"@sveltejs/kit": "^1.0.0-next.481",
-		"@typescript-eslint/eslint-plugin": "^5.27.0",
-		"@typescript-eslint/parser": "^5.27.0",
-		"eslint": "^8.16.0",
-		"eslint-config-prettier": "^8.3.0",
+		"@sveltejs/adapter-static": "^1.0.0-next.44",
+		"@sveltejs/kit": "^1.0.0-next.516",
+		"@typescript-eslint/eslint-plugin": "^5.40.0",
+		"@typescript-eslint/parser": "^5.40.0",
+		"eslint": "^8.25.0",
+		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
-		"open-cli": "^7.0.1",
-		"prettier": "^2.6.2",
-		"prettier-plugin-svelte": "^2.7.0",
-		"svelte": "^3.44.0",
-		"svelte-check": "^2.7.1",
-		"svelte-preprocess": "^4.10.6",
-		"tslib": "^2.3.1",
-		"typescript": "^4.7.4",
-		"vite": "^3.1.0"
+		"npm-check-updates": "^16.3.11",
+		"open-cli": "^7.1.0",
+		"prettier": "^2.7.1",
+		"prettier-plugin-svelte": "^2.8.0",
+		"svelte": "^3.52.0",
+		"svelte-check": "^2.9.2",
+		"svelte-preprocess": "^4.10.7",
+		"tslib": "^2.4.0",
+		"typescript": "^4.8.4",
+		"vite": "^3.1.8"
 	},
 	"type": "module",
 	"dependencies": {
-		"axios": "^0.27.2",
-		"bootstrap": "^5.2.0"
+		"axios": "^1.1.3",
+		"bootstrap": "^5.2.2"
 	}
 }
