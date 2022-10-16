@@ -4,7 +4,7 @@
 	const dispatch = createEventDispatcher<{ selectCategory: string }>();
 
 	export let categories: string[] = [];
-	let selected: string = 'All';
+	let selected = 'All';
 
 	const selectCategory = (category: string) => {
 		selected = category;

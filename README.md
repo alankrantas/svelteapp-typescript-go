@@ -25,8 +25,7 @@ Install Svelte and Golang app dependencies.
 ```bash
 npm i
 npm prune
-go get ./...
-go mod tidy
+go get -u ./...
 ```
 
 ### `npm run upgrade-all`
@@ -39,12 +38,12 @@ npm install
 npm prune
 ```
 
-### `npm run build`
+### `npm run build-all`
 
 Build Svelte production and Golang executable binary.
 
 ```bash
-npx vite build
+npm run build
 go build .
 ```
 

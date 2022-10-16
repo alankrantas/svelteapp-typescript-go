@@ -3,10 +3,9 @@
 	import { order } from '../../store/stores';
 	import { scale, fly } from 'svelte/transition';
 
-	const submit = () => {
-		new HttpHandler().storeOrder($order).then((id) => {
-			location.href = `/summary/${id}`;
-		});
+	const submit = async () => {
+		const id = await new HttpHandler().storeOrder($order);
+		location.href = `/summary/${id}`;
 	};
 </script>
 
