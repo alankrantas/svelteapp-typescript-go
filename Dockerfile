@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . /app
 
 RUN npm install
-RUN npx vite build
+RUN npm prune
+RUN npm run build
 
 #
 # server-builder (CGO is required)
@@ -30,7 +31,7 @@ RUN go build -mod=readonly -v
 # deploy
 #
 
-FROM alpine as deploy
+FROM alpine as deployment
 
 WORKDIR /app
 
