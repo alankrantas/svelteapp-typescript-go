@@ -3,6 +3,7 @@ module main
 go 1.19
 
 require (
+	github.com/gin-contrib/static v0.0.1
 	github.com/gin-gonic/gin v1.8.1
 	github.com/mattn/go-sqlite3 v1.14.15
 )

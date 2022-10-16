@@ -12,6 +12,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,17 +20,15 @@ import (
 func Server() {
 
 	// read command-line flags
-
 	host := flag.String("host", "localhost", "Server host")
 	port := flag.Int("port", 8080, "Server port")
 	docker := flag.Bool("docker", false, "Running in docker")
 	flag.Parse()
 
 	// prepare service, http handler and server
-
 	gin.SetMode(gin.ReleaseMode)
-	service := Service{}
 	router := gin.Default()
+	service := Service{}
 
 	// apis
 	api := router.Group("/api")
@@ -37,9 +36,7 @@ func Server() {
 	api.POST("/orders", service.OrderService)    // api: /api/orders
 
 	// serve static files
-	router.Static("/_app/", "./build/_app/")
-	router.StaticFile("/index.html", "./build/index.html")
-	router.StaticFile("/favicon.png", "./build/favicon.png")
+	router.Use(static.Serve("/", static.LocalFile("./build", true)))
 	router.NoRoute(func(c *gin.Context) { // fallback
 		c.File("./build/index.html")
 	})
@@ -61,7 +58,6 @@ func Server() {
 	}
 
 	// start server
-
 	go func() {
 		if err := server.ListenAndServe(); !errors.Is(err, http.ErrServerClosed) {
 			log.Fatalln(err)
@@ -69,7 +65,6 @@ func Server() {
 	}()
 
 	// graceful shutdown
-
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit

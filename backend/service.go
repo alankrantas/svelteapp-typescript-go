@@ -7,6 +7,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+
+	// blank import for side effect
 	_ "github.com/mattn/go-sqlite3"
 )
 
