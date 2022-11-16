@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"setup": "npm install && npm prune && go get -u ./...",
-		"upgrade-all": "npx npm-check-updates -u && npm install && npm prune",
+		"upgrade-all": "npx npm-check-updates -u && npm install && npm prune && go get -u ./...",
 		"dev": "vite dev",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -19,23 +19,23 @@
 		"commit": "git pull origin master && git add . && git commit -m \"Updating\" && git push origin master"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-static": "^1.0.0-next.44",
-		"@sveltejs/kit": "^1.0.0-next.516",
-		"@typescript-eslint/eslint-plugin": "^5.40.0",
-		"@typescript-eslint/parser": "^5.40.0",
-		"eslint": "^8.25.0",
+		"@sveltejs/adapter-static": "^1.0.0-next.48",
+		"@sveltejs/kit": "^1.0.0-next.548",
+		"@typescript-eslint/eslint-plugin": "^5.43.0",
+		"@typescript-eslint/parser": "^5.43.0",
+		"eslint": "^8.27.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
-		"npm-check-updates": "^16.3.11",
+		"npm-check-updates": "^16.4.1",
 		"open-cli": "^7.1.0",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.8.0",
-		"svelte": "^3.52.0",
+		"svelte": "^3.53.1",
 		"svelte-check": "^2.9.2",
 		"svelte-preprocess": "^4.10.7",
-		"tslib": "^2.4.0",
-		"typescript": "^4.8.4",
-		"vite": "^3.1.8"
+		"tslib": "^2.4.1",
+		"typescript": "^4.9.3",
+		"vite": "^3.2.4"
 	},
 	"type": "module",
 	"dependencies": {
