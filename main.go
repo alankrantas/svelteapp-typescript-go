@@ -1,13 +1,8 @@
 package main
 
-import (
-	"main/backend"
-
-	"github.com/gin-gonic/gin"
-)
+import "main/backend"
 
 // start Golang backend server/service
 func main() {
-	gin.SetMode(gin.ReleaseMode)
 	backend.Server()
 }
