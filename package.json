@@ -1,25 +1,22 @@
 {
 	"name": "scelteapp-typescript-go",
 	"version": "0.1.0",
+	"license": "MIT",
 	"private": true,
 	"scripts": {
 		"setup": "npm install && npm prune && go get -u ./...",
-		"upgrade": "npx npm-check-updates -u && npm install && npm prune",
-		"upgrade-go": "go get -u ./...",
-		"upgrade-all": "npm run upgrade && npm run upgrade-go",
+		"upgrade-all": "npx npm-check-updates -u && npm run setup",
 		"dev": "vite dev",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"build": "vite build",
-		"build-go": "go build .",
-		"build-all": "npm run build && npm run build-go",
+		"build": "npx vite build && go build ",
 		"serve": "open-cli http://localhost:8080 && main",
-		"start": "npm run setup && npm run build && npm run serve",
+		"quickstart": "npm run setup && npm run build && npm run serve",
 		"docker": "docker build . -t svelte-ts-go -f Dockerfile && open-cli http://localhost:8080 && docker run -p 8080:8080 --rm svelte-ts-go",
-		"commit": "git pull origin master && git add . && git commit -m \"Updating\" && git push origin master"
+		"commit": "npm run format && git pull origin master && git add . && git commit -m \"Updating\" && git push origin master"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^1.0.0",

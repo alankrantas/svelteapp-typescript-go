@@ -7,9 +7,9 @@ FROM node:alpine as app-builder
 WORKDIR /app
 COPY . /app
 
-RUN npm install
+RUN npm install --package-lock-only
 RUN npm prune
-RUN npm run build
+RUN npx vite build
 
 #
 # server-builder (CGO is required)
