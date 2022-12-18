@@ -6,7 +6,7 @@
 	"scripts": {
 		"setup": "npm install && npm prune && go get -u ./...",
 		"upgrade-all": "npx npm-check-updates -u && npm run setup",
-		"dev": "vite dev",
+		"dev": "vite dev --open",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -20,10 +20,10 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^1.0.0",
-		"@sveltejs/kit": "^1.0.0",
+		"@sveltejs/kit": "^1.0.1",
 		"@typescript-eslint/eslint-plugin": "^5.46.1",
 		"@typescript-eslint/parser": "^5.46.1",
-		"eslint": "^8.29.0",
+		"eslint": "^8.30.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"npm-check-updates": "^16.6.0",
