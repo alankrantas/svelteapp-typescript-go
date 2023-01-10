@@ -4,8 +4,8 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"setup": "npm install && echo \"Download Golang dependencies...\" && npm prune",
-		"setup-all": "npm run setup && go get -u ./...",
+		"setup": "npm install && npm prune",
+		"setup-all": "npm run setup && echo \"Download Golang dependencies...\" && go get -u ./...",
 		"upgrade": "npx npm-check-updates -u && npm run setup",
 		"upgrade-all": "npx npm-check-updates -u && npm run setup-all",
 		"dev": "vite dev --open",

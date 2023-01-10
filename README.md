@@ -4,13 +4,13 @@ This is a simple shopping demo app, inspired by the same Angular/React/Vue.js ex
 
 - The frontend is built with [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/) with [TypeScript](https://www.typescriptlang.org/). `@sveltejs/adapter-static` is used to generate a static JavaScript production.
 - The backend is built with [Golang](https://go.dev/): a web server/REST APIs using [gin](https://github.com/gin-gonic/gin) and [go-sqlite3](https://github.com/mattn/go-sqlite3) for the SQlite3 database.
-- A Dockerfile that creates a container with multi-stage builds (image size ~25 MB).
+- A Dockerfile that creates a single container with multi-stage builds (image size ~25 MB).
 
 Right now, like all the original examples, the app only reads product lists and write order data. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
 
 ![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)
 
-A similar project using Vue.js, MongoDB and Docker Compose [can be found here](https://github.com/alankrantas/vueapp-typescript-express).
+A similar project using Vue.js, Express, MongoDB and Docker Compose [can be found here](https://github.com/alankrantas/vueapp-typescript-express).
 
 ## Project Local Setup
 
@@ -18,8 +18,9 @@ For local environment you need
 
 - [Node.js](https://nodejs.org/en/download/)
 - [Golang](https://go.dev/dl/)
-- [Git](https://git-scm.com/download/win).
-- If you are using Windows the Go-ang binary needs gcc to compile, which can be installed with [Mingw-w64](https://www.mingw-w64.org/)
+- [Git](https://git-scm.com/download/win)
+
+> If you are using Windows the go-sqlite3 package needs gcc to compile, which can be installed with [MinGW](https://sourceforge.net/projects/mingw/) (choose MinGW32-base, MinGW32-gcc-g++ and MinGW32-gcc-objc package, then add `\MinGW\bin` to `$PATH`).
 
 Download the project:
 
