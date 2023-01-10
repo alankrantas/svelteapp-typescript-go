@@ -4,10 +4,10 @@
 	import { fly } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
 
+	let id: string = $page.params.id;
+
 	let ready = false;
 	onMount(() => (ready = true));
-
-	let id: string = $page.params.id;
 </script>
 
 {#if ready}

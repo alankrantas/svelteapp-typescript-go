@@ -2,11 +2,11 @@
 
 This is a simple shopping demo app, inspired by the same Angular/React/Vue.js examples in <i>[Essential Typescript](https://github.com/Apress/essential-typescript-4)</i> by Adam Freeman:
 
-- The frontend is built with [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/) with [TypeScript](https://www.typescriptlang.org/). I use `@sveltejs/adapter-static` to generate a static JavaScript production. (Be noted that the production directory is renamed to `./build` instead of `./dist`.)
+- The frontend is built with [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/) with [TypeScript](https://www.typescriptlang.org/). `@sveltejs/adapter-static` is used to generate a static JavaScript production.
 - The backend is built with [Golang](https://go.dev/): a web server/REST APIs using [gin](https://github.com/gin-gonic/gin) and [go-sqlite3](https://github.com/mattn/go-sqlite3) for the SQlite3 database.
 - A Dockerfile that creates a container with multi-stage builds (image size ~25 MB).
 
-Right now, like all the original examples, the app only reads product lists and write order data.
+Right now, like all the original examples, the app only reads product lists and write order data. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
 
 ![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)
 
@@ -14,13 +14,33 @@ A similar project using Vue.js, MongoDB and Docker Compose [can be found here](h
 
 ## Project Local Setup
 
-For local environment, you need
+For local environment you need
 
 - [Node.js](https://nodejs.org/en/download/)
 - [Golang](https://go.dev/dl/)
 - [Git](https://git-scm.com/download/win).
+- If you are using Windows the Go-ang binary needs gcc to compile, which can be installed with [Mingw-w64](https://www.mingw-w64.org/)
 
-### `npm run setup`
+Download the project:
+
+```bash
+git clone https://github.com/alankrantas/svelteapp-typescript-go.git
+```
+
+## Dev Mode (backend not required)
+
+Run the Svelte app in dev mode:
+
+```bash
+npm run setup
+npm run dev
+```
+
+The app will not call any backend APIs; instead it returns built-in mock product data and the returned order number is always 1.
+
+## Build and Run Production
+
+### `npm run setup-all`
 
 Install Svelte and Golang app dependencies. Equivalent to
 
@@ -30,23 +50,29 @@ npm prune
 go get -u ./...
 ```
 
+> You can run `npm run setup` to install Svelte app's dependencies only.
+
 ### `npm run upgrade-all`
 
-Upgrade all NPM packages using `npm-check-updates`. Equivalent to
+Upgrade all Svelte/Go dependencies. Equivalent to
 
 ```
 npx npm-check-updates -u
-npm run setup
+npm run setup-all
 ```
 
-### `npm run build`
+> You can run `npm run upgrade` to upgrade the Svelte app packages only.
 
-Build Svelte production and Golang executable binary. Equivalent to
+### `npm run build-all`
+
+Build the Svelte production and Golang executable binary. Equivalent to
 
 ```bash
 npx vite build
 go build .
 ```
+
+> You can run `npm run build` to build the Svelte app only.
 
 ### `npm run serve`
 
@@ -64,15 +90,11 @@ You can change the host and port as
 ./main -host 127.0.0.1 -port 8080
 ```
 
-### `npm run quickstart`
-
-Run `npm run setup`, `npm run build` and `npm run serve` together.
-
-## Generate and Run as Container
+## Build and Run as Docker Container
 
 ### `npm run docker`
 
-Generate a Docker image then run it. Do not require running `npm run setup` and `npm run build` first. Equivalent to
+Generate a Docker image then run it. Do not require to install Node.js or Golang. Equivalent to
 
 ```bash
 docker build . -t svelte-ts-go -f Dockerfile

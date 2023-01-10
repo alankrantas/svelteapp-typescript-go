@@ -2,12 +2,9 @@
 	import ProductItem from '../../components/ProductItem.svelte';
 	import CategoryList from '../../components/CategoryList.svelte';
 	import Header from '../../components/Header.svelte';
-	import { OrderLine, Order } from '../../data/entities';
 	import { products, selectedCategory, order } from '../../store/stores';
+	import type { OrderLine } from '../../data/entities';
 	import { fade, slide } from 'svelte/transition';
-
-	selectedCategory.set('All');
-	order.set(new Order());
 
 	$: categories = ['All', ...new Set($products.map((p) => p.category))];
 	$: filteredProducts = $products.filter(
