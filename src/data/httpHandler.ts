@@ -37,65 +37,65 @@ export class HttpHandler {
 const mock_products = [
 	{
 		id: 1,
-		name: 'Kayak (dev mode)',
-		category: 'Watersports',
-		description: 'A boat for one person',
-		price: 275
+		name: 'Product 1',
+		category: 'Category 1',
+		description: 'Product description 1',
+		price: 10
 	},
 	{
 		id: 2,
-		name: 'Lifejacket (dev mode)',
-		category: 'Watersports',
-		description: 'Protective and fashionable',
-		price: 48.95
+		name: 'Product 2',
+		category: 'Category 1',
+		description: 'Product description 2',
+		price: 20
 	},
 	{
 		id: 3,
-		name: 'Soccer Ball (dev mode)',
-		category: 'Soccer',
-		description: 'FIFA-approved size and weight',
-		price: 19.5
+		name: 'Product 3',
+		category: 'Category 1',
+		description: 'Product description 3',
+		price: 30
 	},
 	{
 		id: 4,
-		name: 'Corner Flags (dev mode)',
-		category: 'Soccer',
-		description: 'Give your playing field a professional touch',
-		price: 34.95
+		name: 'Product 4',
+		category: 'Category 2',
+		description: 'Product description 4',
+		price: 40
 	},
 	{
 		id: 5,
-		name: 'Stadium (dev mode)',
-		category: 'Soccer',
-		description: 'Flat-packed 35,000-seat stadium',
-		price: 79500
+		name: 'Product 5',
+		category: 'Category 2',
+		description: 'Product description 5',
+		price: 50
 	},
 	{
 		id: 6,
-		name: 'Thinking Cap (dev mode)',
-		category: 'Chess',
-		description: 'Improve brain efficiency by 75%',
-		price: 16
+		name: 'Product 6',
+		category: 'Category 3',
+		description: 'Product description 6',
+		price: 60
 	},
 	{
 		id: 7,
-		name: 'Unsteady Chair (dev mode)',
-		category: 'Chess',
-		description: 'Secretly give your opponent a disadvantage',
-		price: 29.95
+		name: 'Product 7',
+		category: 'Category 3',
+		description: 'Product description 7',
+		price: 70
 	},
 	{
 		id: 8,
-		name: 'Human Chess Board (dev mode)',
-		category: 'Chess',
-		description: 'A fun game for the family',
-		price: 75
+		name: 'Product 8',
+		category: 'Category 3',
+		description: 'Product description 8',
+		price: 80
 	},
 	{
 		id: 9,
-		name: 'Bling Bling King (dev mode)',
-		category: 'Chess',
-		description: 'Gold-plated, diamond-studded King',
-		price: 1200
+		name: 'Product 9',
+		category: 'Category 3',
+		description: 'Product description 9',
+		price: 90
 	}
 ];

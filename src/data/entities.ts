@@ -18,9 +18,7 @@ export class Order {
 	private lines = new Map<number, OrderLine>();
 
 	constructor(initialLines?: OrderLine[]) {
-		if (initialLines) {
-			initialLines.forEach((ol) => this.lines.set(ol.product.id, ol));
-		}
+		if (initialLines) initialLines.forEach((ol) => this.lines.set(ol.product.id, ol));
 	}
 
 	public addProduct(prod: Product, quantity: number) {
@@ -28,7 +26,10 @@ export class Order {
 			if (quantity === 0) {
 				this.removeProduct(prod.id);
 			} else {
-				this.lines.get(prod.id).quantity += quantity;
+				const orderLine = this.lines.get(prod.id);
+				if (orderLine)
+					// map.get() may return undefined
+					orderLine.quantity += quantity;
 			}
 		} else {
 			this.lines.set(prod.id, new OrderLine(prod, quantity));

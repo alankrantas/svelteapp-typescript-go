@@ -1,18 +1,17 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { selectedCategory } from '../store/stores';
 
 	const dispatch = createEventDispatcher<{ selectCategory: string }>();
 
 	export let categories: string[] = [];
-	let selected = 'All';
 
 	const selectCategory = (category: string) => {
-		selected = category;
-		dispatch('selectCategory', selected);
+		dispatch('selectCategory', category);
 	};
 
 	const getButtonClasses = (category: string): string => {
-		const btnClass = selected === category ? 'btn-primary' : 'btn-secondary';
+		const btnClass = $selectedCategory === category ? 'btn-primary' : 'btn-secondary';
 		return `btn ${btnClass}`;
 	};
 </script>

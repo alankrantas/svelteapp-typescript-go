@@ -13,14 +13,14 @@
 
 	const handleSelectCategory = (event: { detail: string }) => {
 		$selectedCategory = event.detail;
-		categories = categories;
+		categories = categories; // force update to trigger rerender in CategoryList
 	};
 
 	const handelAddToCart = (event: { detail: OrderLine }) => {
 		const product = event.detail.product;
 		const quantity = event.detail.quantity;
 		$order.addProduct(product, quantity);
-		$order = $order;
+		$order = $order; // force update to trigger rerender in Header
 	};
 </script>
 

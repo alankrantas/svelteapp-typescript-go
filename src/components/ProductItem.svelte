@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import type { Product } from '../data/entities';
 	import { OrderLine } from '../data/entities';
-	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher<{ addToCart: OrderLine }>();
 
