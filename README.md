@@ -8,7 +8,7 @@ This is a simple shopping demo app, inspired by the same Angular/React/Vue.js ex
 
 Adam Freeman's original projects use `json-server` on an Express server as mock API services. I did not change the spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
 
-The purpose of project is to show how to build a small, modern full-stack monolithic application, but it is not meant to be a practical template for any real world applications.
+The purpose of project is a experiment to build a small, modern full-stack monolithic application, but it is not meant to be a practical template for any real world applications.
 
 ![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)
 
@@ -109,7 +109,3 @@ docker run -p 8080:8080 --rm svelte-ts-go
 ```
 
 Then open `http://localhost:8080`.
-
-## Open in DevContainer or Github CodeSpace
-
-A `.devcontainer/devcontainer.json` is added for enabling the app to run in [DevContainer](https://code.visualstudio.com/docs/devcontainers/containers) or [CodeSpace](https://docs.github.com/en/codespaces).
