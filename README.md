@@ -48,7 +48,7 @@ Install Svelte and Golang app dependencies. Equivalent to
 ```bash
 npm i
 npm prune
-go get -u ./...
+go get ./...
 ```
 
 > You can run `npm run setup` to install Svelte app's dependencies only.
@@ -59,7 +59,9 @@ Upgrade all Svelte/Go dependencies. Equivalent to
 
 ```
 npx npm-check-updates -u
-npm run setup-all
+npm i
+npm prune
+go get -u ./...
 ```
 
 > You can run `npm run upgrade` to upgrade the Svelte app packages only.
