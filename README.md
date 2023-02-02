@@ -77,26 +77,31 @@ go build .
 
 > You can run `npm run build` to build the Svelte app only.
 
-### `npm run serve`
+### `npm run serve` or `npm run serve-win`
+
+> `npm run serve-win` is for Windows users since NPM would use CMD to run bash scripts.
 
 Start a server at `http://localhost:8080`. Equivalent to
 
 ```bash
 ./main
-./main -host 127.0.0.1 -port 8080
 ```
 
-Then open `http://localhost:8080`.
+Then open `http://localhost:8080`. You can also use custom address and port like
+
+```bash
+./main -host 127.0.0.1 -port 8080
+```
 
 The `data.sqlite3` database under `./backend` already contains product data, the same ones as in Adam Freeman's projects.
 
 ## Build and Run as Docker Container
 
-### `npm run docker`
+### `npm run docker` and `npm run docker-run`
 
 > Does not require to install local packages or build productions first
 
-Generate a Docker image then run it. Do not require to install Node.js or Golang. Equivalent to
+Generate a Docker image then run it. Equivalent to
 
 ```bash
 docker build . -t svelte-ts-go -f Dockerfile
@@ -104,3 +109,7 @@ docker run -p 8080:8080 --rm svelte-ts-go
 ```
 
 Then open `http://localhost:8080`.
+
+## Open in DevContainer or Github CodeSpace
+
+A `.devcontainer/devcontainer.json` is added for enabling the app to run in [DevContainer](https://code.visualstudio.com/docs/devcontainers/containers) or [CodeSpace](https://docs.github.com/en/codespaces).

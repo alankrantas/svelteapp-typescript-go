@@ -7,7 +7,7 @@
 		"setup": "npm i && npm prune",
 		"setup-all": "npm run setup && echo \"Download Golang dependencies...\" && go get ./...",
 		"upgrade": "npx npm-check-updates -u && npm run setup",
-		"upgrade-all": "npx npm-check-updates -u && npm run setup && go get -u ./...",
+		"upgrade-all": "npx npm-check-updates -u && npm run setup && echo \"Update Golang dependencies...\" && go get -u ./...",
 		"dev": "vite dev --open",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -15,9 +15,11 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"build": "npx vite build",
-		"build-all": "npm run build && echo \"Building Golang binary...\" && go build .",
-		"serve": "open-cli http://localhost:8080 && main",
-		"docker": "docker build . -t svelte-ts-go -f Dockerfile && open-cli http://localhost:8080 && docker run -p 8080:8080 --rm svelte-ts-go",
+		"build-all": "npm run build && echo \"Building Golang binary...\" && go build -buildvcs=false",
+		"serve": "open-cli http://localhost:8080 && ./main",
+		"serve-win": "open-cli http://localhost:8080 && main",
+		"docker": "docker build . -t svelte-ts-go -f Dockerfile",
+		"docker-run": "open-cli http://localhost:8080 && docker run -p 8080:8080 --rm svelte-ts-go",
 		"commit": "npm run format && go fmt ./... && git pull origin master && git add . && git commit -m \"Updating\" && git push origin master"
 	},
 	"devDependencies": {

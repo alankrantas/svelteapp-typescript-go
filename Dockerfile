@@ -25,7 +25,7 @@ COPY backend /app/backend
 COPY go.* /app
 COPY *.go /app
 
-RUN go build -mod=readonly -v
+RUN go build -buildvcs=false -mod=readonly -v
 
 #
 # deploy
