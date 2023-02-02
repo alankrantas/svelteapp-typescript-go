@@ -18,7 +18,7 @@
 		"build-all": "npm run build && echo \"Building Golang binary...\" && go build .",
 		"serve": "open-cli http://localhost:8080 && main",
 		"docker": "docker build . -t svelte-ts-go -f Dockerfile && open-cli http://localhost:8080 && docker run -p 8080:8080 --rm svelte-ts-go",
-		"commit": "npm run format && git pull origin master && git add . && git commit -m \"Updating\" && git push origin master"
+		"commit": "npm run format && go fmt ./... && git pull origin master && git add . && git commit -m \"Updating\" && git push origin master"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^1.0.5",
