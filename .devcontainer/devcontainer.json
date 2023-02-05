@@ -25,7 +25,6 @@
 				"ms-vscode.vscode-typescript-next",
 				"svelte.svelte-vscode",
 				"golang.go",
-				"esbenp.prettier-vscode"
 			]
 		}
 	}
