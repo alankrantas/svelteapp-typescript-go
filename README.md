@@ -95,7 +95,7 @@ Then open `http://localhost:8080`. You can also use custom address and port like
 
 The `data.sqlite3` database under `./backend` already contains product data, the same ones as in Adam Freeman's projects.
 
-## Build and Run as Docker Container
+## Build and Run the Docker Container
 
 ### `npm run docker` and `npm run docker-run`
 
@@ -109,3 +109,9 @@ docker run -p 8080:8080 --rm svelte-ts-go
 ```
 
 Then open `http://localhost:8080`.
+
+## Open Project in DevContainer/CodeSpace
+
+> Does not require to install local packages or build productions first. You need Docker and VS Code (with the DevContainer extension installed)
+
+The project has a `.devcontainer/devcontainer.json` which can create a Ubuntu container with both Node.js and Golang installed. It would also run a bash script to install dependencies and build the app for you.
