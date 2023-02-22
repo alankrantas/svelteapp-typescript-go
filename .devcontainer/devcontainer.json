@@ -21,11 +21,7 @@
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
-			"extensions": [
-				"ms-vscode.vscode-typescript-next",
-				"svelte.svelte-vscode",
-				"golang.go",
-			]
+			"extensions": ["ms-vscode.vscode-typescript-next", "svelte.svelte-vscode", "golang.go"]
 		}
 	}
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
