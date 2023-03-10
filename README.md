@@ -2,13 +2,13 @@
 
 This is a simple shopping demo app, inspired by the same Angular/React/Vue.js examples in <i>[Essential Typescript](https://github.com/Apress/essential-typescript-4)</i> by Adam Freeman:
 
-- The frontend is built with [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/) using [TypeScript](https://www.typescriptlang.org/). `@sveltejs/adapter-static` is used to generate a static JavaScript production.
-- The backend is built with [Golang](https://go.dev/): a web server/REST APIs using [gin](https://github.com/gin-gonic/gin) and [go-sqlite3](https://github.com/mattn/go-sqlite3) for the SQLite database. In theory you can swap the DB driver to the ones you like.
+- The frontend is built with [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/) using [TypeScript](https://www.typescriptlang.org/). `@sveltejs/adapter-static` is used to generate a static JavaScript production. The CSS styles are provided by [Bootstrap](https://getbootstrap.com/).
+- The backend is built with [Golang](https://go.dev/) - a web server/REST APIs using [gin](https://github.com/gin-gonic/gin) plus the [go-sqlite3](https://github.com/mattn/go-sqlite3) package as the SQLite database driver. In theory you can swap the DB driver to the ones you like.
 - A Dockerfile that creates a single container with multi-stage builds (image size ~25 MB).
 
 Adam Freeman's original projects use `json-server` on an Express server as mock API services. I did not change the spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
 
-The purpose of project is a experiment to build a small, modern full-stack monolithic application, but it is not meant to be a practical template for any real world applications.
+The purpose of project is an experiment to build a small, modern and self-contained full-stack monolithic application, but it is not meant to be a practical template for any real world applications.
 
 ![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)
 
