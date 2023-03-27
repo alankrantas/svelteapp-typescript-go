@@ -115,3 +115,34 @@ Then open `http://localhost:8080`.
 > Does not require to install local packages or build productions first. You need Docker and VS Code (with the DevContainer extension installed)
 
 The project has a `.devcontainer/devcontainer.json` which can create a Ubuntu container with both Node.js and Golang installed. It would also run a bash script to install dependencies and build the app for you.
+
+## SQLite Database Schemes and Data
+
+The database in this repo has already created table ```products``` with 9 product records and an empty table ```orders```. Here's the SQL statements to recreate them:
+
+```sql
+CREATE TABLE "products" (
+	"id"	INTEGER NOT NULL UNIQUE,
+	"name"	TEXT NOT NULL,
+	"category"	TEXT NOT NULL,
+	"description"	TEXT,
+	"price"	REAL NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+CREATE TABLE "orders" (
+	"id"	INTEGER NOT NULL,
+	"product_id"	INTEGER NOT NULL,
+	"quantity"	INTEGER NOT NULL
+);
+
+INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('1', 'Kayak', 'Watersports', 'A boat for one person', '275.0');
+INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('2', 'Lifejacket', 'Watersports', 'Protective and fashionable', '48.95');
+INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('3', 'Soccer Ball', 'Soccer', 'FIFA-approved size and weight', '19.5');
+INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('4', 'Corner Flags', 'Soccer', 'Give your playing field a professional touch', '34.95');
+INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('5', 'Stadium', 'Soccer', 'Flat-packed 35,000-seat stadium', '79500.0');
+INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('6', 'Thinking Cap', 'Chess', 'Improve brain efficiency by 75%', '16.0');
+INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('7', 'Unsteady Chair', 'Chess', 'Secretly give your opponent a disadvantage', '29.95');
+INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('8', 'Human Chess Board', 'Chess', 'A fun game for the family', '75.0');
+INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('9', 'Bling Bling King', 'Chess', 'Gold-plated, diamond-studded King', '1200.0');
+```
