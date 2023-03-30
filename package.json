@@ -20,7 +20,7 @@
 		"serve-win": "open-cli http://localhost:8080 && main",
 		"docker": "docker build . -t svelte-ts-go -f Dockerfile",
 		"docker-run": "open-cli http://localhost:8080 && docker run -p 8080:8080 --rm svelte-ts-go",
-		"commit": "npm run format && go fmt ./... && git pull origin main && git add . && git commit -m \"Updating\" && git push origin main"
+		"commit": "npm run format && git pull origin main && git add . && git commit -m \"Updating\" && git push origin main"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^2.0.1",
