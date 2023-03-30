@@ -9,10 +9,10 @@ COPY . /app
 
 RUN npm install --package-lock-only
 RUN npm prune
-RUN npx vite build
+RUN npm run build
 
 #
-# server-builder (CGO is required)
+# server-builder (CGO is required; do not use CGO_ENABLED=0)
 #
 
 FROM golang:alpine as server-builder
@@ -35,8 +35,9 @@ FROM alpine as deployment
 
 WORKDIR /app
 
+COPY db /app/db
 COPY --from=app-builder /app/build /app/build
-COPY --from=server-builder /app /app
+COPY --from=server-builder /app/main /app
 
 EXPOSE 8080
 

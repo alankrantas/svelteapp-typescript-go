@@ -9,3 +9,6 @@ node_modules
 .env.*
 !.env.example
 README.md
+LICENSE
+main
+main.exe

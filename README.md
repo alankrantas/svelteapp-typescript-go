@@ -4,9 +4,9 @@ This is a simple shopping demo app, inspired by the same Angular/React/Vue.js ex
 
 - The frontend is built with [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/) using [TypeScript](https://www.typescriptlang.org/). `@sveltejs/adapter-static` is used to generate a static JavaScript production. The CSS styles are provided by [Bootstrap](https://getbootstrap.com/).
 - The backend is built with [Golang](https://go.dev/) - a web server/REST APIs using [gin](https://github.com/gin-gonic/gin) plus the [go-sqlite3](https://github.com/mattn/go-sqlite3) package as the SQLite database driver. In theory you can swap the DB driver to the ones you like.
-- A Dockerfile that creates a single container with multi-stage builds (image size ~25 MB).
+- A Dockerfile that creates a single container with multi-stage builds (image size ~26 MB).
 
-Adam Freeman's original projects use `json-server` on an Express server as mock API services. I did not change the spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
+Adam Freeman's original projects use `json-server` on an Express server as mock API services. I did not change the spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data.
 
 The purpose of project is an experiment to build a small, modern and self-contained full-stack monolithic application, but it is not meant to be a practical template for any real world applications.
 
@@ -71,6 +71,7 @@ go get -u ./...
 Build the Svelte production and Golang executable binary. Equivalent to
 
 ```bash
+npm run check
 npx vite build
 go build .
 ```
@@ -93,8 +94,6 @@ Then open `http://localhost:8080`. You can also use custom address and port like
 ./main -host 127.0.0.1 -port 8080
 ```
 
-The `data.sqlite3` database under `./backend` already contains product data, the same ones as in Adam Freeman's projects.
-
 ## Build and Run the Docker Container
 
 ### `npm run docker` and `npm run docker-run`
@@ -112,13 +111,15 @@ Then open `http://localhost:8080`.
 
 ## Open Project in DevContainer/CodeSpace
 
-> Does not require to install local packages or build productions first. You need Docker and VS Code (with the DevContainer extension installed)
+> Does not require to install local packages or build productions first. You need Docker and VS Code (with the DevContainer extension installed).
 
 The project has a `.devcontainer/devcontainer.json` which can create a Ubuntu container with both Node.js and Golang installed. It would also run a bash script to install dependencies and build the app for you.
 
-## SQLite Database Schemes and Data
+## SQLite DB Schemes and Data
 
-The database in this repo has already created table ```products``` with 9 product records and an empty table ```orders```. Here's the SQL statements to recreate them:
+The database (`./db/data.sqlite3`) in this repo already contains the table `products` with 9 product records (copied from [here](https://github.com/Apress/essential-typescript-4/blob/main/22%20-%20Vue.js%20Web%20App%20-%20Part%202/End%20of%20Chapter/vueapp/data.json)) and an empty table `orders`. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
+
+Here's the SQL statements to recreate them:
 
 ```sql
 CREATE TABLE "products" (

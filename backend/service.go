@@ -12,7 +12,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-const dbFileName = "./backend/data.sqlite3"
+const dbFileName = "./db/data.sqlite3"
 
 // Service is the backend DB/REST api struct
 type Service struct {
