@@ -18,7 +18,6 @@
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"updateContentCommand": "bash .devcontainer/setup.sh",
-	"postCreateCommand": "npm run serve",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
