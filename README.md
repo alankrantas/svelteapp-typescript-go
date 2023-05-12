@@ -8,6 +8,8 @@ This is a simple shopping demo app, inspired by the same Angular/React/Vue.js ex
 
 Adam Freeman's original projects use `json-server` on an Express server as mock API services. I did not change the spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data.
 
+The `Axios` package used in the original examples is replaced with `fetch`.
+
 The purpose of project is an experiment to build a small, modern and self-contained full-stack monolithic application, but it is not meant to be a practical template for any real world applications.
 
 ![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)

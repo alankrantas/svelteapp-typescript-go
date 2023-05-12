@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { order } from '../store/stores';
 	import { fade, fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
+	import { order } from '../store/stores';
 
 	$: count = $order.productCount || 0;
 	$: displayText1 = count === 0 ? '(No Selection)' : `${count} product(s), `;

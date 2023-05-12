@@ -1,40 +1,6 @@
-import type { Product, Order } from './entities';
-import Axios from 'axios';
-import { dev } from '$app/environment';
+import type { Product } from './entities';
 
-const urls = {
-	products: '/api/products',
-	orders: '/api/orders'
-};
-
-export class HttpHandler {
-	async loadProducts(): Promise<Product[]> {
-		if (!dev) {
-			const response = await Axios.get<Product[]>(urls.products);
-			return response.data;
-		} else {
-			return mock_products;
-		}
-	}
-
-	async storeOrder(order: Order): Promise<number> {
-		if (!dev) {
-			const orderData = {
-				lines: [...order.orderLines.values()].map((ol) => ({
-					productId: ol.product.id,
-					productName: ol.product.name,
-					quantity: ol.quantity
-				}))
-			};
-			const response = await Axios.post<{ id: number }>(urls.orders, orderData);
-			return response.data.id;
-		} else {
-			return 1;
-		}
-	}
-}
-
-const mock_products = [
+export const mock_products: Product[] = [
 	{
 		id: 1,
 		name: 'Product 1',
