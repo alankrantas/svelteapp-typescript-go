@@ -1,20 +1,18 @@
-# A Svelte Demo Web App with Golang Backend Service and SQLite
+# A Full-Stack Demo App With Svelte, Golang and SQLite
 
-This is a simple shopping demo app, inspired by the same Angular/React/Vue.js examples in <i>[Essential Typescript](https://github.com/Apress/essential-typescript-4)</i> by Adam Freeman:
+This is a simple shopping demo app, based on the same Angular/React/Vue.js examples in <i>[Essential Typescript](https://github.com/Apress/essential-typescript-4)</i> by Adam Freeman:
 
 - The frontend is built with [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/) using [TypeScript](https://www.typescriptlang.org/). `@sveltejs/adapter-static` is used to generate a static JavaScript production. The CSS styles are provided by [Bootstrap](https://getbootstrap.com/).
-- The backend is built with [Golang](https://go.dev/) - a web server/REST APIs using [gin](https://github.com/gin-gonic/gin) plus the [go-sqlite3](https://github.com/mattn/go-sqlite3) package as the SQLite database driver. In theory you can swap the DB driver to the ones you like.
+- The backend APIs and web server is built with [Golang](https://go.dev/) plus [gin](https://github.com/gin-gonic/gin) and use [go-sqlite3](https://github.com/mattn/go-sqlite3) as the SQLite database driver. In theory you can swap the DB driver to the ones you like.
 - A Dockerfile that creates a single container with multi-stage builds (image size ~26 MB).
 
-Adam Freeman's original projects use `json-server` on an Express server as mock API services. I did not change the spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data.
-
-The `Axios` package used in the original examples is replaced with `fetch`.
+Adam Freeman's original projects use `json-server` on an Express server as mock API services. I did not change the spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data. The `Axios` package used in the original examples is replaced with `fetch`.
 
 The purpose of project is an experiment to build a small, modern and self-contained full-stack monolithic application, but it is not meant to be a practical template for any real world applications.
 
 ![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)
 
-A similar version using Vue.js, Express, MongoDB and Docker Compose [can be found here](https://github.com/alankrantas/vueapp-typescript-express).
+A similar version using Vue.js, Express, MongoDB and Docker Compose [can be found here](https://github.com/alankrantas/vueapp-typescript-express) (no longer maintained).
 
 ## Setup Local Project
 
@@ -39,7 +37,7 @@ npm run setup
 
 ### `npm run dev`
 
-Run the Svelte app in dev mode: the app will not call any backend APIs, instead it returns built-in mock product data and the returned order number is always 1.
+Run the Svelte app in dev mode. The app _will not_ call any backend APIs, instead it returns mock product data and the returned order number is always `42`.
 
 ## Build and Run Production
 
@@ -50,7 +48,7 @@ Install Svelte and Golang app dependencies. Equivalent to
 ```bash
 npm i
 npm prune
-go get ./...
+go mod download
 ```
 
 > You can run `npm run setup` to install Svelte app's dependencies only.
@@ -119,7 +117,7 @@ The project has a `.devcontainer/devcontainer.json` which can create a Ubuntu co
 
 ## SQLite DB Schemes and Data
 
-The database (`./db/data.sqlite3`) in this repo already contains the table `products` with 9 product records (copied from [here](https://github.com/Apress/essential-typescript-4/blob/main/22%20-%20Vue.js%20Web%20App%20-%20Part%202/End%20of%20Chapter/vueapp/data.json)) and an empty table `orders`. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
+The database (`./db/data.sqlite3`) in this repo already contains the table `products` with 9 product records (copied from [here](https://github.com/Apress/essential-typescript-4/blob/main/22%20-%20Vue.js%20Web%20App%20-%20Part%202/End%20of%20Chapter/vueapp/data.json) which are used in many Adam Freeman's books) and an empty table `orders`. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
 
 Here's the SQL statements to recreate them:
 

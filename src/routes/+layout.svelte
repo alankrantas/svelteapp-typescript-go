@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Svelte app</title>
+	<title>Sports Store Demo App</title>
 </svelte:head>
 
 <slot />

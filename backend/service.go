@@ -18,14 +18,14 @@ const dbFileName = "./db/data.sqlite3"
 type Service struct {
 }
 
-func (s *Service) getDB() (*sql.DB, error) {
+func (s *Service) getDatabase() (*sql.DB, error) {
 	return sql.Open("sqlite3", dbFileName)
 }
 
-// QueryProductsFromDB load product list from DB
-func (s *Service) QueryProductsFromDB() (products []Product, err error) {
+// LoadProductsFromDatabase load product list from DB
+func (s *Service) LoadProductsFromDatabase() (products []Product, err error) {
 
-	db, err := s.getDB()
+	db, err := s.getDatabase()
 	if err != nil {
 		log.Println(err)
 		return
@@ -57,10 +57,10 @@ func (s *Service) QueryProductsFromDB() (products []Product, err error) {
 	return
 }
 
-// AddOrderToDB insert new order into DB
-func (s *Service) AddOrderToDB(newOrder Order) (newID int, err error) {
+// StoreOrderIntoDatabase insert new order into DB
+func (s *Service) StoreOrderIntoDatabase(newOrder Order) (newID int, err error) {
 
-	db, err := s.getDB()
+	db, err := s.getDatabase()
 	if err != nil {
 		log.Println(err)
 		return
@@ -116,7 +116,7 @@ func (s *Service) AddOrderToDB(newOrder Order) (newID int, err error) {
 // ProductService is the GET service for product list
 func (s *Service) ProductService(c *gin.Context) {
 
-	products, err := s.QueryProductsFromDB()
+	products, err := s.LoadProductsFromDatabase()
 	if err != nil {
 		log.Println(err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -137,10 +137,10 @@ func (s *Service) OrderService(c *gin.Context) {
 		return
 	}
 
-	newID, err := s.AddOrderToDB(newOrder)
+	newID, err := s.StoreOrderIntoDatabase(newOrder)
 	if err != nil || newID == 0 {
 		if newID == 0 {
-			err = errors.New("Unable to get new order id")
+			err = errors.New("unable to get new order id")
 		}
 		log.Println(err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})

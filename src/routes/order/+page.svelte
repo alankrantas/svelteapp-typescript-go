@@ -1,36 +1,12 @@
 <script lang="ts">
 	import { scale, fly } from 'svelte/transition';
+
 	import { order } from '../../store/stores';
-	import type { Order } from '../../data/entities';
-	import { dev } from '$app/environment';
+	import { storeOrder } from '../../data/services';
 
 	const submit = async () => {
 		const id = await storeOrder($order);
 		location.href = `/summary/${id}`;
-	};
-
-	const storeOrder = async (order: Order): Promise<number> => {
-		if (dev) {
-			return 1;
-		} else {
-			const orderData = {
-				lines: [...order.orderLines.values()].map((ol) => ({
-					productId: ol.product.id,
-					productName: ol.product.name,
-					quantity: ol.quantity
-				}))
-			};
-			const response = (await (
-				await fetch('/api/orders', {
-					method: 'POST',
-					headers: {
-						'content-type': 'application/json;charset=UTF-8'
-					},
-					body: JSON.stringify(orderData)
-				})
-			).json()) as { id: number };
-			return response.id;
-		}
 	};
 </script>
 

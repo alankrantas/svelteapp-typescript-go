@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
 	let id: string = $page.params.id;
 
