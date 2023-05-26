@@ -2,17 +2,46 @@
 
 This is a simple shopping demo app, based on the same Angular/React/Vue.js examples in <i>[Essential Typescript](https://github.com/Apress/essential-typescript-4)</i> by Adam Freeman:
 
-- The frontend is built with [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/) using [TypeScript](https://www.typescriptlang.org/). `@sveltejs/adapter-static` is used to generate a static JavaScript production. The CSS styles are provided by [Bootstrap](https://getbootstrap.com/).
-- The backend APIs and web server is built with [Golang](https://go.dev/) plus [gin](https://github.com/gin-gonic/gin) and use [go-sqlite3](https://github.com/mattn/go-sqlite3) as the SQLite database driver. In theory you can swap the DB driver to the ones you like.
-- A Dockerfile that creates a single container with multi-stage builds (image size ~26 MB).
+- Front-end: (`/src`)
+  - [TypeScript](https://www.typescriptlang.org/)
+  - Component framework: [Svelte](https://svelte.dev/)
+  - Application framework: [SvelteKit](https://kit.svelte.dev/)
+  - Static site generation: [@sveltejs/adapter-static](https://www.npmjs.com/package/@sveltejs/adapter-static)
+  - CSS styles: [Bootstrap](https://getbootstrap.com/)
+- Back-end: (`/backend`)
+  - [Golang](https://go.dev/)
+  - Static web server/web services: [gin](https://github.com/gin-gonic/gin)
+  - SQLite driver: [go-sqlite3](https://github.com/mattn/go-sqlite3)
+- Database: (`/db`)
+  - SQLite
 
-Adam Freeman's original projects use `json-server` on an Express server as mock API services. I did not change the spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data. The `Axios` package used in the original examples is replaced with `fetch`.
+The project also has a Dockerfile that creates a single container with multi-stage builds (image size ~26 MB).
+
+The Svelte app has the following routes:
+
+| Route           | Page                                     |
+| --------------- | ---------------------------------------- |
+| `/`             | (Redirect to `/products`)                |
+| `/products`     | Browse and add products to shopping cart |
+| `/order`        | View and checkout order                  |
+| `/summary/[id]` | Order result                             |
+
+The backend creates two RESTful-like APIs:
+
+| API             | Function           |
+| --------------- | ------------------ |
+| `/api/products` | Query product data |
+| `/api/orders`   | Write order data   |
+
+Adam Freeman's original projects use `json-server` on an Express server as mock API services. I keep the spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data. The `Axios` package used in the original examples is also replaced with `fetch`.
 
 The purpose of project is an experiment to build a small, modern and self-contained full-stack monolithic application, but it is not meant to be a practical template for any real world applications.
 
 ![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)
 
 A similar version using Vue.js, Express, MongoDB and Docker Compose [can be found here](https://github.com/alankrantas/vueapp-typescript-express) (no longer maintained).
+
+---
 
 ## Setup Local Project
 
@@ -114,6 +143,8 @@ Then open `http://localhost:8080`.
 > Does not require to install local packages or build productions first. You need Docker and VS Code (with the DevContainer extension installed).
 
 The project has a `.devcontainer/devcontainer.json` which can create a Ubuntu container with both Node.js and Golang installed. It would also run a bash script to install dependencies and build the app for you.
+
+---
 
 ## SQLite DB Schemes and Data
 

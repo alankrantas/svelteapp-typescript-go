@@ -2,6 +2,7 @@
 node_modules
 /.devcontainer
 /.github
+/.vscode
 /.svelte-kit
 /build
 /package
