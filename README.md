@@ -15,9 +15,9 @@ This is a simple shopping demo app, based on the same Angular/React/Vue.js examp
   - Static web server/web services: [gin](https://github.com/gin-gonic/gin)
   - SQLite driver: [go-sqlite3](https://github.com/mattn/go-sqlite3)
 - Database: (`/db`)
-  - SQLite
+  - [SQLite](https://www.sqlite.org/index.html)
 
-The project also has a Dockerfile that creates a single container with multi-stage builds (image size ~26 MB).
+The project has a Dockerfile that creates a single container with multi-stage builds (image size ~26 MB) and also supports to be opened in DevContainer/CodeSpace.
 
 The Svelte app has the following routes:
 
@@ -137,12 +137,6 @@ docker run -p 8080:8080 --rm svelte-ts-go
 ```
 
 Then open `http://localhost:8080`.
-
-## Open Project in DevContainer/CodeSpace
-
-> Does not require to install local packages or build productions first. You need Docker and VS Code (with the DevContainer extension installed).
-
-The project has a `.devcontainer/devcontainer.json` which can create a Ubuntu container with both Node.js and Golang installed. It would also run a bash script to install dependencies and build the app for you.
 
 ---
 
