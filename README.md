@@ -1,5 +1,7 @@
 # A Full-Stack Demo App With Svelte, Golang and SQLite
 
+![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)
+
 This is a simple shopping demo app, based on the same Angular/React/Vue.js examples in <i>[Essential Typescript](https://github.com/Apress/essential-typescript-4)</i> by Adam Freeman:
 
 - Front-end: (`/src`)
@@ -28,16 +30,14 @@ The Svelte app has the following routes:
 
 The backend creates two RESTful-like APIs:
 
-| API             | Function           |
-| --------------- | ------------------ |
-| `/api/products` | Query product data |
-| `/api/orders`   | Write order data   |
+| API                 | Function                                 |
+| ------------------- | ---------------------------------------- |
+| GET `/api/products` | Query and retur product data             |
+| POST `/api/orders`  | Write order data and return new order ID |
 
 Adam Freeman's original projects use `json-server` on an Express server as mock API services. I keep the spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data. The `Axios` package used in the original examples is also replaced with `fetch`.
 
-The purpose of project is an experiment to build a small, modern and self-contained full-stack monolithic application, but it is not meant to be a practical template for any real world applications.
-
-![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)
+The purpose of project is an experiment to build a small, modern and self-contained full-stack monolithic application, but it is not meant to be a practical template for any real world applications. Error handlings are ignored in this project.
 
 A similar version using Vue.js, Express, MongoDB and Docker Compose [can be found here](https://github.com/alankrantas/vueapp-typescript-express) (no longer maintained).
 
@@ -146,9 +146,9 @@ The project has a `.devcontainer/devcontainer.json` which can create a Ubuntu co
 
 ---
 
-## SQLite DB Schemes and Data
+## SQLite DB Schemes and Test Data
 
-The database (`./db/data.sqlite3`) in this repo already contains the table `products` with 9 product records (copied from [here](https://github.com/Apress/essential-typescript-4/blob/main/22%20-%20Vue.js%20Web%20App%20-%20Part%202/End%20of%20Chapter/vueapp/data.json) which are used in many Adam Freeman's books) and an empty table `orders`. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
+The database (`./db/data.sqlite3`) in this repo already contains the table `products` with 9 product records (which can be found in many Adam Freeman's books) and an empty table `orders`. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
 
 Here's the SQL statements to recreate them:
 
