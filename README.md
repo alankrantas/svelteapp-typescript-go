@@ -1,4 +1,4 @@
-# A Full-Stack Demo App With Svelte, Golang and SQLite
+# A Full-Stack, Self-Contained Shooping Demo App With Svelte, Golang and SQLite
 
 ![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)
 
@@ -48,95 +48,62 @@ A similar version using Vue.js, Express, MongoDB and Docker Compose [can be foun
 For local development you'll need
 
 - [Git](https://git-scm.com/download/)
-- [Node.js](https://nodejs.org/en/download/)
-- [Golang](https://go.dev/dl/) (not required in dev mode)
+- [Node.js](https://nodejs.org/en/download/) (for dev or production)
+- [Golang](https://go.dev/dl/) (for production)
 - [Docker](https://docs.docker.com/get-docker/) (only required for generating the container)
 
-> If you are using Windows the `go-sqlite3` package needs GCC to compile, which can be installed with [MinGW](https://sourceforge.net/projects/mingw/) (choose `MinGW32-base`, `MinGW32-gcc-g++` and `MinGW32-gcc-objc` package, then add `\MinGW\bin` to `$PATH`). On Linux you can get it by installing package `build-essential`.
+> If you are Windows user the `go-sqlite3` package requires GCC to compile, which can be installed with [MinGW](https://sourceforge.net/projects/mingw/) (choose `MinGW32-base`, `MinGW32-gcc-g++` and `MinGW32-gcc-objc` package, then add `\MinGW\bin` to `$PATH`). On Linux you can installing the package `build-essential`.
 
-Prepare the project:
+### Clone Repository
 
 ```bash
 git clone https://github.com/alankrantas/svelteapp-typescript-go.git
 cd svelteapp-typescript-go
+```
+
+### Serve in Dev Mode
+
+Run the Svelte app in development mode. The app _will not_ call any backend APIs, instead it returns mock product data and the returned order number is always `42`.
+
+```bash
 npm run setup
+npm run dev
 ```
 
-## Run in Dev Mode (no backend required)
+The app will be open at `http://localhost:3000`.
 
-### `npm run dev`
+### Build and Serve Production
 
-Run the Svelte app in dev mode. The app _will not_ call any backend APIs, instead it returns mock product data and the returned order number is always `42`.
-
-## Build and Run Production
-
-### `npm run setup-all`
-
-Install Svelte and Golang app dependencies. Equivalent to
+Install dependencies, build both front-end and back-end apps and run the local server:
 
 ```bash
-npm i
-npm prune
-go mod download
+npm run setup-all
+npm run build-all
+npm run serve
 ```
 
-> You can run `npm run setup` to install Svelte app's dependencies only.
+The app would open at `http://localhost:8080`.
 
-### `npm run upgrade-all`
+> On Windows use `npm run serve-win` instead since NPM uses CMD to run bash scripts.
 
-Upgrade all Svelte/Go dependencies. Equivalent to
-
-```
-npx npm-check-updates -u
-npm i
-npm prune
-go get -u ./...
-```
-
-> You can run `npm run upgrade` to upgrade the Svelte app packages only.
-
-### `npm run build-all`
-
-Build the Svelte production and Golang executable binary. Equivalent to
+### Upgrade All Dependencies
 
 ```bash
-npm run check
-npx vite build
-go build .
+npm run upgrade-all
 ```
 
-> You can run `npm run build` to build the Svelte app only.
+> Use `npm run upgrade` to upgrade only the front-end dependencies.
 
-### `npm run serve` or `npm run serve-win`
+---
 
-> `npm run serve-win` is for Windows users since NPM would use CMD to run bash scripts.
-
-Start a server at `http://localhost:8080`. Equivalent to
+### Build and Run as a Docker Container
 
 ```bash
-./main
+npm run docker
+npm run docker-run
 ```
 
-Then open `http://localhost:8080`. You can also use custom address and port like
-
-```bash
-./main -host 127.0.0.1 -port 8080
-```
-
-## Build and Run the Docker Container
-
-### `npm run docker` and `npm run docker-run`
-
-> Does not require to install local packages or build productions first
-
-Generate a Docker image then run it. Equivalent to
-
-```bash
-docker build . -t svelte-ts-go -f Dockerfile
-docker run -p 8080:8080 --rm svelte-ts-go
-```
-
-Then open `http://localhost:8080`.
+The app would open at `http://localhost:8080`.
 
 ---
 
@@ -162,13 +129,21 @@ CREATE TABLE "orders" (
 	"quantity"	INTEGER NOT NULL
 );
 
-INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('1', 'Kayak', 'Watersports', 'A boat for one person', '275.0');
-INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('2', 'Lifejacket', 'Watersports', 'Protective and fashionable', '48.95');
-INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('3', 'Soccer Ball', 'Soccer', 'FIFA-approved size and weight', '19.5');
-INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('4', 'Corner Flags', 'Soccer', 'Give your playing field a professional touch', '34.95');
-INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('5', 'Stadium', 'Soccer', 'Flat-packed 35,000-seat stadium', '79500.0');
-INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('6', 'Thinking Cap', 'Chess', 'Improve brain efficiency by 75%', '16.0');
-INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('7', 'Unsteady Chair', 'Chess', 'Secretly give your opponent a disadvantage', '29.95');
-INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('8', 'Human Chess Board', 'Chess', 'A fun game for the family', '75.0');
-INSERT INTO "main"."products" ("id", "name", "category", "description", "price") VALUES ('9', 'Bling Bling King', 'Chess', 'Gold-plated, diamond-studded King', '1200.0');
+INSERT INTO "main"."products" (
+	"id",
+	"name",
+	"category",
+	"description",
+	"price"
+)
+VALUES
+	('1', 'Kayak', 'Watersports', 'A boat for one person', '275.0'),
+	('2', 'Lifejacket', 'Watersports', 'Protective and fashionable', '48.95'),
+	('3', 'Soccer Ball', 'Soccer', 'FIFA-approved size and weight', '19.5'),
+	('4', 'Corner Flags', 'Soccer', 'Give your playing field a professional touch', '34.95'),
+	('5', 'Stadium', 'Soccer', 'Flat-packed 35,000-seat stadium', '79500.0'),
+	('6', 'Thinking Cap', 'Chess', 'Improve brain efficiency by 75%', '16.0'),
+	('7', 'Unsteady Chair', 'Chess', 'Secretly give your opponent a disadvantage', '29.95'),
+	('8', 'Human Chess Board', 'Chess', 'A fun game for the family', '75.0'),
+	('9', 'Bling Bling King', 'Chess', 'Gold-plated, diamond-studded King', '1200.0');
 ```
