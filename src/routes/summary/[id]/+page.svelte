@@ -11,7 +11,7 @@
 </script>
 
 {#if ready}
-	<div class="m-2 text-center" in:fly={{ y: 100, duration: 4000, easing: elasticOut }}>
+	<div class="m-2 text-center" in:fly|global={{ y: 100, duration: 4000, easing: elasticOut }}>
 		<h2>Thanks!</h2>
 		<p>Thanks for placing your order.</p>
 		<p>Your order is #{id}</p>

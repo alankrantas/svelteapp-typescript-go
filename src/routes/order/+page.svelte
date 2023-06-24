@@ -12,7 +12,7 @@
 
 <div>
 	<h3 class="text-center bg-primary text-white p-2">Order Summary</h3>
-	<div class="p-3" in:scale={{ start: 0.9, duration: 1000 }}>
+	<div class="p-3" in:scale|global={{ start: 0.9, duration: 1000 }}>
 		<table class="table table-sm table-striped">
 			<thead>
 				<tr>
@@ -36,7 +36,7 @@
 				<tr>
 					<th class="text-end" colSpan="3">Total:</th>
 					<th class="text-end">
-						<span style="display: inline-block" in:fly={{ y: 25, duration: 2000 }}>
+						<span style="display: inline-block" in:fly|global={{ y: 25, duration: 2000 }}>
 							${$order.total.toFixed(2)}
 						</span>
 					</th>

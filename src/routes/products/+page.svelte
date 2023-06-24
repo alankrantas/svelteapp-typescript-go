@@ -30,12 +30,12 @@
 	<Header />
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-3 p-2" in:fade={{ duration: 500 }}>
+			<div class="col-3 p-2" in:fade|global={{ duration: 500 }}>
 				<CategoryList {categories} on:selectCategory={handleSelectCategory} />
 			</div>
 			<div class="col-9 p-2">
 				{#each filteredProducts as product}
-					<div transition:slide|local={{ duration: 500 }}>
+					<div transition:slide={{ duration: 500 }}>
 						<ProductItem {product} on:addToCart={handelAddToCart} />
 					</div>
 				{/each}

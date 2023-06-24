@@ -10,12 +10,12 @@
 
 <div class="p-1 bg-secondary text-white text-end">
 	{#key displayText1}
-		<span style="display: inline-block" in:fade={{ duration: 500 }}>
+		<span style="display: inline-block" in:fade|global={{ duration: 500 }}>
 			{displayText1}
 		</span>
 	{/key}
 	{#key displayText2}
-		<span style="display: inline-block" in:fly={{ y: -50, duration: 500, easing: quintOut }}>
+		<span style="display: inline-block" in:fly|global={{ y: -50, duration: 500, easing: quintOut }}>
 			{displayText2}
 		</span>
 	{/key}
