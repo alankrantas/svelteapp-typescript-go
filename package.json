@@ -27,7 +27,7 @@
 		"@sveltejs/kit": "^1.20.5",
 		"@typescript-eslint/eslint-plugin": "^5.60.0",
 		"@typescript-eslint/parser": "^5.60.0",
-		"eslint": "^8.43.0",
+		"eslint": "^8.44.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-svelte": "^2.31.0",
 		"npm-check-updates": "^16.10.13",
