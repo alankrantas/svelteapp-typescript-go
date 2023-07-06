@@ -17,7 +17,7 @@ This is a simple shopping demo app, based on the same Angular/React/Vue.js examp
 - Database: (`/db`)
   - [SQLite](https://www.sqlite.org/index.html)
 
-The project has a Dockerfile that creates a single container with multi-stage builds (image size ~26 MB) and also supports to be opened in DevContainer/CodeSpace.
+The project has a Dockerfile that creates a single container with multi-stage builds (image size ~27 MB) and also supports to be opened in DevContainer/CodeSpace.
 
 The Svelte app has the following routes:
 

@@ -7,8 +7,7 @@ FROM node:alpine as app-builder
 WORKDIR /app
 COPY . /app
 
-RUN npm install --package-lock-only
-RUN npm prune
+RUN npm run setup
 RUN npm run build
 
 #
