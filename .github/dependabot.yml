@@ -7,6 +7,9 @@ updates:
       time: '12:00'
       day: 'saturday'
       timezone: 'Asia/Taipei'
+    ignore:
+      - dependency-name: 'prettier'
+        versions: ['^3.0.0']
     open-pull-requests-limit: 10
     versioning-strategy: increase
 
