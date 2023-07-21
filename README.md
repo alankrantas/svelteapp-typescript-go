@@ -1,4 +1,4 @@
-# A Full-Stack, Self-Contained Shooping Demo App With Svelte, Golang and SQLite
+# A Full-Stack, Self-Contained Shopping Demo App With Svelte, Golang and SQLite
 
 ![ezgif-5-22d3d39425](https://user-images.githubusercontent.com/44191076/148008744-14f89c9d-5343-483a-8bdc-c05618a84acc.gif)
 
