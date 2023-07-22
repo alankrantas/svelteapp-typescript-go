@@ -7,7 +7,10 @@ export interface Product {
 }
 
 export class OrderLine {
-	constructor(public product: Product, public quantity: number) {}
+	constructor(
+		public product: Product,
+		public quantity: number
+	) {}
 
 	get total(): number {
 		return this.product.price * this.quantity;

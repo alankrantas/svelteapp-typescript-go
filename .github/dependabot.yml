@@ -4,12 +4,9 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-      time: '12:00'
+      time: '09:00'
       day: 'saturday'
       timezone: 'Asia/Taipei'
-    ignore:
-      - dependency-name: 'prettier'
-        versions: ['^3.0.0']
     open-pull-requests-limit: 10
     versioning-strategy: increase
 
@@ -17,7 +14,7 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-      time: '12:00'
+      time: '09:00'
       day: 'saturday'
       timezone: 'Asia/Taipei'
     open-pull-requests-limit: 10
@@ -26,7 +23,7 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-      time: '12:00'
+      time: '09:00'
       day: 'saturday'
       timezone: 'Asia/Taipei'
     open-pull-requests-limit: 10
