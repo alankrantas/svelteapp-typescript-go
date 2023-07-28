@@ -23,7 +23,7 @@
 		"commit": "npm run format && git pull origin main && git add . && git commit -m \"Updating\" && git push origin main"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-static": "^2.0.2",
+		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.22.3",
 		"@typescript-eslint/eslint-plugin": "^6.1.0",
 		"@typescript-eslint/parser": "^6.1.0",
