@@ -4,8 +4,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-      time: '09:00'
-      day: 'saturday'
+      time: '18:00'
+      day: 'sunday'
       timezone: 'Asia/Taipei'
     open-pull-requests-limit: 10
     versioning-strategy: increase
@@ -14,8 +14,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-      time: '09:00'
-      day: 'saturday'
+      time: '18:00'
+      day: 'sunday'
       timezone: 'Asia/Taipei'
     open-pull-requests-limit: 10
 
@@ -23,8 +23,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-      time: '09:00'
-      day: 'saturday'
+      time: '18:00'
+      day: 'sunday'
       timezone: 'Asia/Taipei'
     open-pull-requests-limit: 10
 
@@ -32,7 +32,7 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
-      time: '12:00'
-      day: 'saturday'
+      time: '18:00'
+      day: 'sunday'
       timezone: 'Asia/Taipei'
     open-pull-requests-limit: 10
