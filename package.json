@@ -30,7 +30,7 @@
 		"eslint": "^8.50.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-svelte": "^2.33.2",
-		"npm-check-updates": "^16.14.4",
+		"npm-check-updates": "^16.14.5",
 		"open-cli": "^7.2.0",
 		"prettier": "^3.0.3",
 		"prettier-plugin-svelte": "^3.0.3",
