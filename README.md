@@ -17,7 +17,7 @@ This is a simple shopping demo app, based on the same Angular/React/Vue.js examp
 - Database: (`/db`)
   - [SQLite](https://www.sqlite.org/index.html)
 
-The project has a Dockerfile that creates a single container with multi-stage builds (image size ~27 MB) and also supports to be opened in DevContainer/CodeSpace.
+The project has a Dockerfile that creates a single container with multi-stage builds (image size less than 30 MB) and also supports to be opened in DevContainer/CodeSpace.
 
 The Svelte app has the following routes:
 
@@ -26,7 +26,9 @@ The Svelte app has the following routes:
 | `/`             | (Redirect to `/products`)                |
 | `/products`     | Browse and add products to shopping cart |
 | `/order`        | View and checkout order                  |
-| `/summary/[id]` | Order result                             |
+| `/summary/{id}` | Order result                             |
+
+> SvelteKit has a feature to create ["backend APIs"](https://kit.svelte.dev/docs/routing#server), and I guess you would be able to call Node-based database packages from there if the production is built by `@sveltejs/adapter-node` and run in a Node environment. However the Golang server here is enough - and smaller too - so we don't really need to create duplicated APIs.
 
 The backend creates two RESTful-like APIs:
 
