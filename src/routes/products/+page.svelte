@@ -13,12 +13,12 @@
 		(p) => $selectedCategory === 'All' || $selectedCategory === p.category
 	);
 
-	const handleSelectCategory = (event: { detail: string }) => {
+	const handleSelectCategory = (event: CustomEvent<string>) => {
 		$selectedCategory = event.detail;
 		categories = categories; // force trigger rerender in CategoryList
 	};
 
-	const handelAddToCart = (event: { detail: OrderLine }) => {
+	const handelAddToCart = (event: CustomEvent<OrderLine>) => {
 		const product = event.detail.product;
 		const quantity = event.detail.quantity;
 		$order.addProduct(product, quantity);
