@@ -6,7 +6,7 @@
 	"scripts": {
 		"setup-app": "yarn",
 		"setup-server": "cho \"Download Golang dependencies...\" && go mod download",
-		"setup-full": "yarn setup-app && yarn setup-server",
+		"setup-full": "yarn && yarn setup-server",
 		"upgrade-app": "yarn-upgrade-all && yarn upgrade",
 		"upgrade-server": "echo \"Update Golang dependencies...\" && go get -u ./...",
 		"upgrade-full": "yarn upgrade-app && yarn upgrade-server",

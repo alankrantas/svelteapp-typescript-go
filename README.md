@@ -61,48 +61,89 @@ For local development you'll need
 ```bash
 git clone https://github.com/alankrantas/svelteapp-typescript-go.git
 cd svelteapp-typescript-go
+npm i -g yarn@latest
+yarn setup-full
 ```
 
-### Serve in Dev Mode
+And install/upgrade yarn:
+
+```bash
+npm i -g yarn@latest
+```
+
+### Serve Frontend in Dev Mode
 
 Run the Svelte app in development mode. The app _will not_ call any backend APIs, instead it returns mock product data and the returned order number is always `42`.
 
 ```bash
-npm run setup
-npm run dev
+yarn dev
 ```
 
 The app will be open at `http://localhost:3000`.
 
-### Build and Serve Production
+### Download Dependencies
+
+```bash
+# download frontend dependencies
+yarn
+
+# download backend dependencies
+yarn setup-server
+
+# download both dependencies
+yarn setup-full
+```
+
+### Upgrade Dependencies
+
+```bash
+# upgrade frontend dependencies
+yarn upgrade-app
+
+# upgrade backend dependencies
+yarn upgrade-server
+
+# upgrade both dependencies
+yarn upgrade-full
+```
+
+### Build Production
 
 Install dependencies, build both front-end and back-end apps and run the local server:
 
 ```bash
-npm run setup-all
-npm run build-all
-npm run serve
+# build frontend app
+yarn build-app
+
+# build backend server
+yarn build-server
+
+# build both
+yarn build-full
+```
+
+### Serve Production
+
+```bash
+# serve in macOS or Linux
+yarn serve
+
+# serve in Windows
+yarn serve-win
 ```
 
 The app would open at `http://localhost:8080`.
-
-> On Windows use `npm run serve-win` instead since NPM uses CMD to run bash scripts.
-
-### Upgrade All Dependencies
-
-```bash
-npm run upgrade-all
-```
-
-> Use `npm run upgrade` to upgrade only the front-end dependencies.
 
 ---
 
 ### Build and Run as a Docker Container
 
 ```bash
-npm run docker
-npm run docker-run
+# build container
+yarn docker
+
+# run container
+yarn docker-run
 ```
 
 The app would open at `http://localhost:8080`.
