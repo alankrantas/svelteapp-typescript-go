@@ -5,7 +5,7 @@
 	"private": true,
 	"scripts": {
 		"setup-app": "yarn",
-		"setup-server": "cho \"Download Golang dependencies...\" && go mod download",
+		"setup-server": "echo \"Download Golang dependencies...\" && go mod download",
 		"setup-full": "yarn && yarn setup-server",
 		"upgrade-app": "yarn-upgrade-all && yarn upgrade",
 		"upgrade-server": "echo \"Update Golang dependencies...\" && go get -u ./...",
