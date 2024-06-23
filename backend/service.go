@@ -46,7 +46,7 @@ func (s *Service) LoadProductsFromDatabase() (products []Product, err error) {
 
 	for rows.Next() {
 		p := Product{}
-		if err := rows.Scan(&p.ID, &p.Name, &p.Category, &p.Description, &p.Price); err != nil {
+		if err := rows.Scan(&p.Id, &p.Name, &p.Category, &p.Description, &p.Price); err != nil {
 			log.Println(err)
 			continue
 		}
@@ -104,7 +104,7 @@ func (s *Service) StoreOrderIntoDatabase(newOrder Order) (newID int, err error) 
 	var itemCount int
 	for _, line := range newOrder.Lines {
 		itemCount += line.Quantity
-		if _, err = insertStmt.Exec(newID, line.ProductID, line.Quantity); err != nil {
+		if _, err = insertStmt.Exec(newID, line.ProductId, line.Quantity); err != nil {
 			log.Println(err)
 		}
 	}
@@ -137,9 +137,9 @@ func (s *Service) OrderService(c *gin.Context) {
 		return
 	}
 
-	newID, err := s.StoreOrderIntoDatabase(newOrder)
-	if err != nil || newID == 0 {
-		if newID == 0 {
+	newId, err := s.StoreOrderIntoDatabase(newOrder)
+	if err != nil || newId == 0 {
+		if newId == 0 {
 			err = errors.New("unable to get new order id")
 		}
 		log.Println(err)
@@ -148,5 +148,6 @@ func (s *Service) OrderService(c *gin.Context) {
 	}
 
 	// return the new order id
-	c.JSON(http.StatusCreated, gin.H{"id": newID})
+	result := Result{ Id: newId }
+	c.JSON(http.StatusCreated, result)
 }

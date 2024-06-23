@@ -5,8 +5,8 @@
 	import { storeOrder } from '../../data/services';
 
 	const submit = async () => {
-		const id = await storeOrder($order);
-		location.href = `/summary/${id}`;
+		const result = await storeOrder($order);
+		location.href = `/summary/${result.id}`; // redirect to /summary/{id}
 	};
 </script>
 

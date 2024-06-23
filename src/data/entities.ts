@@ -6,6 +6,14 @@ export interface Product {
 	price: number;
 }
 
+export interface OrderData {
+	lines: {
+		productId: number;
+		productName: string;
+		quantity: number;
+	}[];
+}
+
 export class OrderLine {
 	constructor(
 		public product: Product,
@@ -31,7 +39,7 @@ export class Order {
 			} else {
 				const orderLine = this.lines.get(prod.id);
 				if (orderLine)
-					// map.get() may return undefined
+					// type guard against undefined
 					orderLine.quantity += quantity;
 			}
 		} else {
@@ -54,4 +62,8 @@ export class Order {
 	get total(): number {
 		return [...this.lines.values()].reduce((total, ol) => (total += ol.total), 0);
 	}
+}
+
+export interface Result {
+	id: number;
 }

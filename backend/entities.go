@@ -2,7 +2,7 @@ package backend
 
 // Product data
 type Product struct {
-	ID          int     `json:"id"`
+	Id          int     `json:"id"`
 	Name        string  `json:"name"`
 	Category    string  `json:"category"`
 	Description string  `json:"description"`
@@ -16,7 +16,12 @@ type Order struct {
 
 // Line data in an order
 type Line struct {
-	ProductID   int    `json:"productid"`
-	ProductName string `json:"productname"`
+	ProductId   int    `json:"productId"`
+	ProductName string `json:"productName"`
 	Quantity    int    `json:"quantity"`
+}
+
+// Result data
+type Result struct {
+	Id int `json:"id"`
 }

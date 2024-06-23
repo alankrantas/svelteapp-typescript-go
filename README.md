@@ -59,20 +59,20 @@ Example response body:
 
 ```json
 [
-    {
-        "id": 1,
-        "name": "Kayak",
-        "category": "Watersports",
-        "description": "A boat for one person",
-        "price": 275.0
-    },
-    {
-        "id": 2,
-        "name": "Lifejacket",
-        "category": "Watersports",
-        "description": "Protective and fashionable",
-        "price": 48.95
-    }
+	{
+		"id": 1,
+		"name": "Kayak",
+		"category": "Watersports",
+		"description": "A boat for one person",
+		"price": 275.0
+	},
+	{
+		"id": 2,
+		"name": "Lifejacket",
+		"category": "Watersports",
+		"description": "Protective and fashionable",
+		"price": 48.95
+	}
 ]
 ```
 
@@ -84,18 +84,18 @@ Example request body:
 
 ```json
 {
-    "lines": [
-        {
-            "productid": 1,
-            "productname": "Kayak",
-            "quantity": 2
-        },
-        {
-            "productid": 2,
-            "productname": "Lifejacket",
-            "quantity": 4
-        }
-    ]
+	"lines": [
+		{
+			"productId": 1,
+			"productName": "Kayak",
+			"quantity": 2
+		},
+		{
+			"productId": 2,
+			"productName": "Lifejacket",
+			"quantity": 4
+		}
+	]
 }
 ```
 
@@ -103,7 +103,7 @@ Example response body:
 
 ```json
 {
-    "id": 42
+	"id": 42
 }
 ```
 
@@ -111,7 +111,7 @@ Example response body:
 
 ## Database Schemes and Test Data
 
-The SQLite database (`./db/data.sqlite3`) in this repo already contains the table `products` with 9 product records (which can be found in many Adam Freeman's books) and an empty table `orders`. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database.
+The SQLite database (`./db/data.sqlite3`) in this repo already contains the table `products` with 9 product records (which can be found in many Adam Freeman's books) and an empty table `orders`. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database. There is also a backup file in case you need to restore the database.
 
 Here's the SQL statements to recreate them:
 
@@ -254,4 +254,3 @@ yarn docker-run
 ```
 
 The app would open at `http://localhost:8080`.
-

@@ -19,5 +19,6 @@
 			{displayText2}
 		</span>
 	{/key}
+	<!-- redirect to /order -->
 	<a href="/order" class="btn btn-sm btn-primary m-1"> Submit Order </a>
 </div>

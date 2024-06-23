@@ -47,6 +47,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource/open-sans": "^5.0.28",
 		"bootstrap": "^5.3.3"
 	}
 }
