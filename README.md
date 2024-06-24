@@ -212,6 +212,8 @@ yarn upgrade-server
 
 # upgrade both dependencies
 yarn upgrade-full
+# or
+# yarn upgrade-all
 ```
 
 ### Build Production
@@ -227,6 +229,8 @@ yarn build-server
 
 # build both
 yarn build-full
+# or
+# yarn build
 ```
 
 ### Serve Production
