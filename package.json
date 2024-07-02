@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"setup-app": "yarn",
+		"setup-app": "yarn install --frozen-lockfile",
 		"setup-server": "echo \"Download Golang dependencies...\" && go mod download",
 		"setup-full": "yarn && yarn setup-server",
 		"upgrade-app": "yarn-upgrade-all && yarn upgrade",
