@@ -18,7 +18,7 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"build-app": "yarn check && yarn vite build",
-		"build-server": "echo \"Building Golang binary...\" && go build -buildvcs=false -mod=readonly -v",
+		"build-server": "echo \"Building Golang binary...\" && go env -w CGO_ENABLED=1 && go build -buildvcs=false -mod=readonly -v",
 		"build-full": "yarn build-app && yarn build-server",
 		"build": "yarn build-all",
 		"serve": "open-cli http://localhost:8080 && ./main",

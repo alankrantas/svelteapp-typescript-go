@@ -7,17 +7,17 @@ FROM node:alpine as app-builder
 WORKDIR /app
 COPY . /app
 
-RUN npm i -g yarn
 RUN yarn install --frozen-lockfile
 RUN yarn check
 RUN yarn vite build
 
 #
-# server-builder (CGO is required; do not use CGO_ENABLED=0)
+# server-builder (CGO is required)
 #
 
 FROM golang:alpine as server-builder
 
+ENV CGO_ENABLED=1
 RUN apk add build-base
 
 WORKDIR /app

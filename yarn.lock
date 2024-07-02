@@ -159,7 +159,7 @@
 
 "@fontsource/open-sans@^5.0.28":
   version "5.0.28"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.0.28.tgz#ae371d53744ef2e5346c1576fba582f55ce3e90c"
+  resolved "https://registry.npmjs.org/@fontsource/open-sans/-/open-sans-5.0.28.tgz#ae371d53744ef2e5346c1576fba582f55ce3e90c"
   integrity sha512-hBvJHY76pJT/JynGUB5EXWhnzjYfLdcMn655J5p1v9lTT9HdQSy+keq2KPVXO2Htlg998BBa3p6u/jlrZ6w0kg==
 
 "@humanwhocodes/config-array@^0.11.14":
@@ -544,7 +544,7 @@ binary-extensions@^2.0.0:
 
 bootstrap@^5.3.3:
   version "5.3.3"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.3.3.tgz#de35e1a765c897ac940021900fcbb831602bac38"
+  resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.3.tgz#de35e1a765c897ac940021900fcbb831602bac38"
   integrity sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==
 
 brace-expansion@^1.1.7:

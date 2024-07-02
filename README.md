@@ -12,16 +12,16 @@ This is a simple shopping demo app, based on the same Angular/React/Vue.js examp
   - CSS styles: [Bootstrap](https://getbootstrap.com/)
 - Back-end: (`/backend`)
   - [Golang](https://go.dev/)
-  - Static web server/web services: [gin](https://github.com/gin-gonic/gin)
+  - Static web server/RESTful web services: [gin](https://github.com/gin-gonic/gin)
   - SQLite driver: [go-sqlite3](https://github.com/mattn/go-sqlite3)
 - Database: (`/db`)
   - [SQLite](https://www.sqlite.org/index.html)
 
-The project has a Dockerfile that creates a single small container with multi-stage builds (image size less than 25 MB) and also supports to be opened in DevContainer/CodeSpace.
+The project comes with a [Dockerfile](https://github.com/alankrantas/svelteapp-typescript-go/blob/main/Dockerfile) that can create a single small container with multi-stage builds (image size less than 25 MB) and also support to be opened in [DevContainer](https://code.visualstudio.com/docs/devcontainers/containers)/[CodeSpace](https://github.com/features/codespaces).
 
-The purpose of project is a demostration to build a small, modern and self-contained full-stack monolithic application, but it is not meant to be a practical template for any real world applications. Error handlings are ignored in this project.
+The purpose of project is a demonstration to build a small and self-contained full-stack monolithic application with modern frameworks, but it is not meant to be a practical template for any real world applications. For example, error handlings are mostly ignored and there is no any form of authentication.
 
-A similar version using Vue.js, Express, MongoDB and Docker Compose [can be found here](https://github.com/alankrantas/vueapp-typescript-express) (no longer maintained).
+> A similar version using Vue.js, Express, MongoDB and Docker Compose [can be found here](https://github.com/alankrantas/vueapp-typescript-express) (no longer maintained).
 
 ## Routes
 
@@ -40,7 +40,7 @@ The backend creates two RESTful-like APIs:
 
 | API                 | Function                                 |
 | ------------------- | ---------------------------------------- |
-| GET `/api/products` | Query and retur product data             |
+| GET `/api/products` | Query and return product data            |
 | POST `/api/orders`  | Write order data and return new order ID |
 
 Adam Freeman's original projects use [`json-server`](https://github.com/typicode/json-server) on an Express server as mock API services. I keep the input/output spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data. The `Axios` package used in the original examples is also replaced with `fetch`.
@@ -117,37 +117,37 @@ Here's the SQL statements to recreate them:
 
 ```sql
 CREATE TABLE "products" (
-	"id"	INTEGER NOT NULL UNIQUE, -- product ID
-	"name"	TEXT NOT NULL,
-	"category"	TEXT NOT NULL,
-	"description"	TEXT,
-	"price"	REAL NOT NULL,
-	PRIMARY KEY("id" AUTOINCREMENT)
+    "id"    INTEGER NOT NULL UNIQUE, -- product ID
+    "name"    TEXT NOT NULL,
+    "category"    TEXT NOT NULL,
+    "description"    TEXT,
+    "price"    REAL NOT NULL,
+    PRIMARY KEY("id" AUTOINCREMENT)
 );
 
 CREATE TABLE "orders" (
-	"id"	INTEGER NOT NULL, -- order ID
-	"product_id"	INTEGER NOT NULL, -- product ID
-	"quantity"	INTEGER NOT NULL
+    "id"    INTEGER NOT NULL, -- order ID
+    "product_id"    INTEGER NOT NULL, -- product ID
+    "quantity"    INTEGER NOT NULL
 );
 
 INSERT INTO "main"."products" (
-	"id",
-	"name",
-	"category",
-	"description",
-	"price"
+    "id",
+    "name",
+    "category",
+    "description",
+    "price"
 )
 VALUES
-	('1', 'Kayak', 'Watersports', 'A boat for one person', '275.0'),
-	('2', 'Lifejacket', 'Watersports', 'Protective and fashionable', '48.95'),
-	('3', 'Soccer Ball', 'Soccer', 'FIFA-approved size and weight', '19.5'),
-	('4', 'Corner Flags', 'Soccer', 'Give your playing field a professional touch', '34.95'),
-	('5', 'Stadium', 'Soccer', 'Flat-packed 35,000-seat stadium', '79500.0'),
-	('6', 'Thinking Cap', 'Chess', 'Improve brain efficiency by 75%', '16.0'),
-	('7', 'Unsteady Chair', 'Chess', 'Secretly give your opponent a disadvantage', '29.95'),
-	('8', 'Human Chess Board', 'Chess', 'A fun game for the family', '75.0'),
-	('9', 'Bling Bling King', 'Chess', 'Gold-plated, diamond-studded King', '1200.0');
+    ('1', 'Kayak', 'Watersports', 'A boat for one person', '275.0'),
+    ('2', 'Lifejacket', 'Watersports', 'Protective and fashionable', '48.95'),
+    ('3', 'Soccer Ball', 'Soccer', 'FIFA-approved size and weight', '19.5'),
+    ('4', 'Corner Flags', 'Soccer', 'Give your playing field a professional touch', '34.95'),
+    ('5', 'Stadium', 'Soccer', 'Flat-packed 35,000-seat stadium', '79500.0'),
+    ('6', 'Thinking Cap', 'Chess', 'Improve brain efficiency by 75%', '16.0'),
+    ('7', 'Unsteady Chair', 'Chess', 'Secretly give your opponent a disadvantage', '29.95'),
+    ('8', 'Human Chess Board', 'Chess', 'A fun game for the family', '75.0'),
+    ('9', 'Bling Bling King', 'Chess', 'Gold-plated, diamond-studded King', '1200.0');
 ```
 
 ---
@@ -161,7 +161,9 @@ For local development you'll need
 - [Golang](https://go.dev/dl/) (for production)
 - [Docker](https://docs.docker.com/get-docker/) (only required for generating the container)
 
-> If you are Windows user the `go-sqlite3` package requires GCC to compile, which can be installed with [MinGW](https://sourceforge.net/projects/mingw/) (choose `MinGW32-base`, `MinGW32-gcc-g++` and `MinGW32-gcc-objc` package, then add `\MinGW\bin` to `$PATH`). On Linux you can installing the package `build-essential`.
+> Note: the `go-sqlite3` package requires GCC to compile with the environment variable `CGO_ENABLED=1`.
+>
+> For Windows users, it can be installed with [MinGW](https://winlibs.com/#download-release) (unzip and add `\mingw64\bin` to `$PATH`, then restart VS Code). On Linux it can be installed with the package `build-essential`.
 
 ### Clone Repository
 
@@ -224,7 +226,7 @@ Install dependencies, build both front-end and back-end apps and run the local s
 # build frontend app
 yarn build-app
 
-# build backend server
+# build backend server (which will set CGO_ENABLED=1)
 yarn build-server
 
 # build both
