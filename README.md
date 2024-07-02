@@ -59,20 +59,20 @@ Example response body:
 
 ```json
 [
-  {
-    "id":1,
-    "name":"Kayak",
-    "category":"Watersports",
-    "description":"A boat for one person",
-    "price":275.0
-  },
-  {
-    "id":2,
-    "name":"Lifejacket",
-    "category":"Watersports",
-    "description":"Protective and fashionable",
-    "price":48.95
-  }
+	{
+		"id": 1,
+		"name": "Kayak",
+		"category": "Watersports",
+		"description": "A boat for one person",
+		"price": 275.0
+	},
+	{
+		"id": 2,
+		"name": "Lifejacket",
+		"category": "Watersports",
+		"description": "Protective and fashionable",
+		"price": 48.95
+	}
 ]
 ```
 
@@ -84,18 +84,18 @@ Example request body:
 
 ```json
 {
-  "lines":[
-    {
-      "productId":1,
-      "productName":"Kayak",
-      "quantity":2
-    },
-    {
-      "productId":2,
-      "productName":"Lifejacket",
-      "quantity":4
-    }
-  ]
+	"lines": [
+		{
+			"productId": 1,
+			"productName": "Kayak",
+			"quantity": 2
+		},
+		{
+			"productId": 2,
+			"productName": "Lifejacket",
+			"quantity": 4
+		}
+	]
 }
 ```
 
@@ -103,7 +103,7 @@ Example response body:
 
 ```json
 {
-  "id":42
+	"id": 42
 }
 ```
 
