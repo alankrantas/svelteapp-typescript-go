@@ -7,8 +7,10 @@ FROM node:alpine as app-builder
 WORKDIR /app
 COPY . /app
 
-RUN npm run setup
-RUN npm run build
+RUN npm i -g yarn
+RUN yarn install --frozen-lockfile
+RUN yarn check
+RUN yarn vite build
 
 #
 # server-builder (CGO is required; do not use CGO_ENABLED=0)
