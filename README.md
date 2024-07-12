@@ -45,7 +45,7 @@ The backend creates two RESTful-like APIs:
 
 Adam Freeman's original projects use [`json-server`](https://github.com/typicode/json-server) on an Express server as mock API services. I keep the input/output spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data. The `Axios` package used in the original examples is also replaced with `fetch`.
 
-> SvelteKit also has a feature to create ["backend APIs"](https://kit.svelte.dev/docs/routing#server), and I assume you can call Node-based database packages from there if the production is built by `@sveltejs/adapter-node` and run in a Node environment. However the Golang server here is enough - and smaller too - so we don't really need to create duplicated APIs.
+> SvelteKit also has a feature to create ["backend APIs"](https://kit.svelte.dev/docs/routing#server). However the Golang server here is enough, so we don't really need to create duplicated APIs.
 
 ### `/api/products`
 
@@ -109,7 +109,7 @@ Example response body:
 
 ---
 
-## Database Schemes and Test Data
+## Database Schemes and Example Data
 
 The SQLite database (`./db/data.sqlite3`) in this repo already contains the table `products` with 9 product records (which can be found in many Adam Freeman's books) and an empty table `orders`. You can use [DB Browser for SQLite](https://sqlitebrowser.org/) to read the database. There is also a backup file in case you need to restore the database.
 
