@@ -201,6 +201,8 @@ yarn setup-server
 
 # download both dependencies
 yarn setup-full
+# or
+# yarn setup-all
 ```
 
 ### Upgrade Dependencies
@@ -233,6 +235,7 @@ yarn build-server
 yarn build-full
 # or
 # yarn build
+# yarn build-all
 ```
 
 ### Serve Production
