@@ -178,10 +178,10 @@
   dependencies:
     levn "^0.4.1"
 
-"@fontsource/open-sans@^5.0.30":
-  version "5.0.30"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.0.30.tgz#47b58a6b98afd44bab2d736dcb544fbfa5c55ce3"
-  integrity sha512-u5Siu6un1R0Q5UZ9lr56YujMe5xjXWoJm3qJUiEKk6IMKqOkedT/NsbAgIQtaqJL1jMZbpCVXGVCd97ahQYeKQ==
+"@fontsource/open-sans@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.1.0.tgz#3fb106a5e0a208bbe8e66ac5e9a2130afff6b859"
+  integrity sha512-g+mjF8gWUDwck9DrRCkhmFeEj7fskjtKZJKAQguVzSg93lc6ThakTHMRgs0dZfe5qBbktrV839tDrb4bIDyZSA==
 
 "@humanwhocodes/module-importer@^1.0.1":
   version "1.0.1"

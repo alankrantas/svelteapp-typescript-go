@@ -51,7 +51,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/open-sans": "^5.0.30",
+		"@fontsource/open-sans": "^5.1.0",
 		"bootstrap": "^5.3.3",
 		"picomatch": "^4.0.2"
 	}
