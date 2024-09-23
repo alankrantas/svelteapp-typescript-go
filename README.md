@@ -9,7 +9,7 @@ This is a simple shopping demo app, based on the same Angular/React/Vue.js examp
   - Component framework: [Svelte 4](https://svelte.dev/)
   - Application framework: [SvelteKit 2](https://kit.svelte.dev/)
   - Static site generation: [@sveltejs/adapter-static](https://www.npmjs.com/package/@sveltejs/adapter-static)
-  - CSS styles: [Bootstrap](https://getbootstrap.com/)
+  - CSS styles: [Bootstrap 5](https://getbootstrap.com/)
 - Back-end: (`/backend`)
   - [Golang](https://go.dev/)
   - Static web server/RESTful web services: [gin](https://github.com/gin-gonic/gin)
@@ -19,7 +19,9 @@ This is a simple shopping demo app, based on the same Angular/React/Vue.js examp
 
 The project comes with a [Dockerfile](https://github.com/alankrantas/svelteapp-typescript-go/blob/main/Dockerfile) that can create a single small container with multi-stage builds (image size less than 25 MB) and also support to be opened in [DevContainer](https://code.visualstudio.com/docs/devcontainers/containers)/[CodeSpace](https://github.com/features/codespaces).
 
-The purpose of project is a demonstration to build a small and self-contained full-stack monolithic application with modern frameworks, but it is not meant to be a practical template for any real world applications. For example, error handlings are mostly ignored and there is no any form of authentication.
+A [Github Action workflow](https://github.com/alankrantas/svelteapp-typescript-go/blob/main/.github/workflows/dependabot-test.yml) is created to run build test for dependabot's pull-requests for dependency updates.
+
+The purpose of project is a demonstration to build a small and self-contained full-stack monolithic application with modern frameworks, but not meant to be a practical template for any real world applications. For example, error handlings between front-end and authentication are mostly ignored.
 
 > A similar version using Vue.js, Express, MongoDB and Docker Compose [can be found here](https://github.com/alankrantas/vueapp-typescript-express) (no longer maintained).
 
