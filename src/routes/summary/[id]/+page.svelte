@@ -1,12 +1,14 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	import { fly } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
-	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
 
 	let ready = $state(false);
 
-	onMount(() => (ready = true));
+	$effect(() => {
+		ready = true;
+	});
 </script>
 
 {#if ready}

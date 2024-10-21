@@ -1,14 +1,19 @@
 <script lang="ts">
+	import { getOrderStore } from '../store/stores.svelte';
+
 	import { fade, fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
-	import { Order } from '../data/entities';
 
-	let { order }: { order: Order } = $props();
+	const order = getOrderStore();
 
-	let displayText1 = $derived(
-		order.productCount === 0 ? '(No Selection)' : `${order.productCount} product, `
+	const displayText1 = $derived(
+		order.value && order.value.productCount != 0
+			? `${order.value.productCount} product, `
+			: '(No Selection)'
 	);
-	let displayText2 = $derived(order.productCount === 0 ? '' : `$${order.total.toFixed(2)}`);
+	const displayText2 = $derived(
+		order.value && order.value.productCount != 0 ? `$${order.value.total.toFixed(2)}` : ''
+	);
 </script>
 
 <div class="p-1 bg-secondary text-white text-end">

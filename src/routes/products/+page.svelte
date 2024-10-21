@@ -1,20 +1,20 @@
 <script lang="ts">
-	import { fade, slide } from 'svelte/transition';
-
 	import ProductItem from '../../components/ProductItem.svelte';
 	import CategoryList from '../../components/CategoryList.svelte';
 	import Header from '../../components/Header.svelte';
 
+	import { fade, slide } from 'svelte/transition';
+
 	import type { PageData } from './$types';
 	import type { SelectCategoryEvent } from '../../data/entities';
-	import { createProductsStore, createOrderStore } from '../../store/stores.svelte';
+	import { getProductsStore, getOrderStore } from '../../store/stores.svelte';
 
 	let { data }: { data: PageData } = $props();
 
-	const products = createProductsStore();
-	products.set(data?.products || []);
-
-	const order = createOrderStore();
+	const products = getProductsStore();
+	products.set(data.products);
+	const order = getOrderStore();
+	order.init();
 
 	let selectedCategory = $state('All');
 	let categories = $derived(['All', ...new Set(products.value.map((p) => p.category))]);
@@ -28,7 +28,7 @@
 </script>
 
 <div>
-	<Header order={order.value} />
+	<Header />
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-3 p-2" in:fade|global={{ duration: 500 }}>

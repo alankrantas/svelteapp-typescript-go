@@ -1,10 +1,9 @@
-import type { Product } from '../data/entities';
-import { Order } from '../data/entities';
+import { type Product, Order } from '../data/entities';
 
 let products: Product[] = $state([]);
-let order = $state(new Order());
+let order: Order | null = $state(null);
 
-export function createProductsStore() {
+export const getProductsStore = () => {
 	return {
 		get value() {
 			return products;
@@ -14,33 +13,20 @@ export function createProductsStore() {
 		},
 		set(newProducts: Product[]) {
 			products = newProducts;
-		},
-		add(newProduct: Product) {
-			products.push(newProduct);
-			products = products;
-		},
-		clear() {
-			products = [];
 		}
 	};
-}
+};
 
-export function createOrderStore() {
+export const getOrderStore = () => {
 	return {
-		get value() {
+		get value(): Order | null {
 			return order;
 		},
 		set value(newOrder: Order) {
 			order = newOrder;
 		},
-		set(newOrder: Order) {
-			order = newOrder;
-		},
-		addProduct(product: Product, quantity: number) {
-			order.addProduct(product, quantity);
-		},
-		removeProduct(id: number) {
-			order.removeProduct(id);
+		init() {
+			if (!order) order = new Order();
 		}
 	};
-}
+};

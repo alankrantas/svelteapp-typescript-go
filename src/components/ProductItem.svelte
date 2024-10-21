@@ -1,14 +1,14 @@
 <script lang="ts">
+	import { getOrderStore } from '../store/stores.svelte';
 	import type { Product } from '../data/entities';
-	import { createOrderStore } from '../store/stores.svelte';
 
-	const order = createOrderStore();
+	const order = getOrderStore();
 
 	let { product }: { product: Product } = $props();
 	let quantity = $state('1');
 
-	const handleAddToCart = () => {
-		order.addProduct(product, Number(quantity));
+	const addToCart = () => {
+		if (order.value) order.value.addProduct(product, Number(quantity));
 	};
 </script>
 
@@ -21,9 +21,7 @@
 	</h4>
 	<div class="card-text bg-white p-1">
 		{product.description}
-		<button class="btn btn-success btn-sm float-end" onclick={handleAddToCart}>
-			Add To Cart
-		</button>
+		<button class="btn btn-success btn-sm float-end" onclick={addToCart}> Add To Cart </button>
 		<select class="form-control-inline float-end m-1" bind:value={quantity}>
 			<option>1</option>
 			<option>2</option>
