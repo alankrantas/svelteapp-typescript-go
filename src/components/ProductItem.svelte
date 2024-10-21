@@ -8,7 +8,10 @@
 	let quantity = $state('1');
 
 	const addToCart = () => {
-		if (order.value) order.value.addProduct(product, Number(quantity));
+		if (order.value) {
+			order.value.addProduct(product, Number(quantity));
+			order.value = order.value;
+		}
 	};
 </script>
 

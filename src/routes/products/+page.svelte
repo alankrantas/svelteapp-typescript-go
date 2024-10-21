@@ -11,13 +11,12 @@
 
 	let { data }: { data: PageData } = $props();
 
-	const products = getProductsStore();
-	products.set(data.products);
-	const order = getOrderStore();
-	order.init();
+	const products = getProductsStore(data.products);
+	getOrderStore();
+
+	const categories = ['All', ...new Set(products.value.map((p) => p.category))];
 
 	let selectedCategory = $state('All');
-	let categories = $derived(['All', ...new Set(products.value.map((p) => p.category))]);
 	let filteredProducts = $derived(
 		products.value.filter((p) => selectedCategory === 'All' || selectedCategory === p.category)
 	);

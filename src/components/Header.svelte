@@ -8,7 +8,7 @@
 
 	const displayText1 = $derived(
 		order.value && order.value.productCount != 0
-			? `${order.value.productCount} product, `
+			? `${order.value.productCount} product(s), `
 			: '(No Selection)'
 	);
 	const displayText2 = $derived(
