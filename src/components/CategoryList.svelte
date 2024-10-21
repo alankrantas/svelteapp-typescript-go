@@ -1,25 +1,30 @@
 <script lang="ts">
+	import type { SelectCategoryEvent } from '../data/entities';
 	import { createEventDispatcher } from 'svelte';
-	import { selectedCategory } from '../store/stores';
 
-	const dispatch = createEventDispatcher<{ selectCategory: string }>();
+	const dispatch = createEventDispatcher<{ selectCategory: SelectCategoryEvent }>();
 
-	export let categories: string[] = [];
+	interface Props {
+		categories: string[];
+		selectedCategory: string;
+	}
 
-	const selectCategory = (category: string) => {
-		dispatch('selectCategory', category);
-	};
+	let { categories, selectedCategory }: Props = $props();
 
 	const getButtonClasses = (category: string): string => {
-		const btnClass = $selectedCategory === category ? 'btn-primary' : 'btn-secondary';
+		const btnClass = selectedCategory === category ? 'btn-primary' : 'btn-secondary';
 		return `btn ${btnClass}`;
+	};
+
+	const handleSelectedCategory = (category: string) => {
+		dispatch('selectCategory', { category: category });
 	};
 </script>
 
 <div class="d-grid gap-2">
-	{#each categories as c}
-		<button class={getButtonClasses(c)} on:click={() => selectCategory(c)}>
-			{c}
+	{#each categories as category}
+		<button class={getButtonClasses(category)} onclick={() => handleSelectedCategory(category)}>
+			{category}
 		</button>
 	{/each}
 </div>

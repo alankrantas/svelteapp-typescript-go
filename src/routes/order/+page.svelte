@@ -1,11 +1,15 @@
 <script lang="ts">
 	import { scale, fly } from 'svelte/transition';
 
-	import { order } from '../../store/stores';
 	import { storeOrder } from '../../data/services';
+	import { Order } from '../../data/entities';
+	import { createOrderStore } from '../../store/stores.svelte';
+
+	const order = createOrderStore();
 
 	const submit = async () => {
-		const result = await storeOrder($order);
+		const result = await storeOrder(order.value);
+		order.set(new Order());
 		location.href = `/summary/${result.id}`; // redirect to /summary/{id}
 	};
 </script>
@@ -23,7 +27,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each $order.orderLines as line}
+				{#each order.value.orderLines as line}
 					<tr>
 						<td>{line.quantity}</td>
 						<td>{line.product.name}</td>
@@ -37,7 +41,7 @@
 					<th class="text-end" colSpan="3">Total:</th>
 					<th class="text-end">
 						<span style="display: inline-block" in:fly|global={{ y: 25, duration: 2000 }}>
-							${$order.total.toFixed(2)}
+							${order.value.total.toFixed(2)}
 						</span>
 					</th>
 				</tr>
@@ -46,6 +50,6 @@
 	</div>
 	<div class="text-center">
 		<a href="/products" class="btn btn-secondary m-1"> Back </a>
-		<button class="btn btn-primary m-1" on:click={submit}>Submit Order</button>
+		<button class="btn btn-primary m-1" onclick={submit}>Submit Order</button>
 	</div>
 </div>

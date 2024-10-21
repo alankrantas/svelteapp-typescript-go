@@ -1,15 +1,14 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
 	import type { Product } from '../data/entities';
-	import { OrderLine } from '../data/entities';
+	import { createOrderStore } from '../store/stores.svelte';
 
-	const dispatch = createEventDispatcher<{ addToCart: OrderLine }>();
+	const order = createOrderStore();
 
-	export let product: Product;
-	let quantity: string;
+	let { product }: { product: Product } = $props();
+	let quantity = $state('1');
 
 	const handleAddToCart = () => {
-		dispatch('addToCart', new OrderLine(product, Number(quantity)));
+		order.addProduct(product, Number(quantity));
 	};
 </script>
 
@@ -22,7 +21,7 @@
 	</h4>
 	<div class="card-text bg-white p-1">
 		{product.description}
-		<button class="btn btn-success btn-sm float-end" on:click={handleAddToCart}>
+		<button class="btn btn-success btn-sm float-end" onclick={handleAddToCart}>
 			Add To Cart
 		</button>
 		<select class="form-control-inline float-end m-1" bind:value={quantity}>
