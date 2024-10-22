@@ -21,7 +21,10 @@
 		{product.description}
 		<button
 			class="btn btn-success btn-sm float-end"
-			onclick={() => handleAddToCart(new OrderLine(product, Number(quantity)))}
+			onclick={(event: MouseEvent) => {
+				event.preventDefault();
+				handleAddToCart(new OrderLine(product, Number(quantity)));
+			}}
 		>
 			Add To Cart
 		</button>

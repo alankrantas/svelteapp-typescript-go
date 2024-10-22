@@ -15,7 +15,13 @@
 
 <div class="d-grid gap-2">
 	{#each categories as category}
-		<button class={getButtonClasses(category)} onclick={() => handleSelectCategory(category)}>
+		<button
+			class={getButtonClasses(category)}
+			onclick={(event: MouseEvent) => {
+				event.preventDefault();
+				handleSelectCategory(category);
+			}}
+		>
 			{category}
 		</button>
 	{/each}

@@ -1,14 +1,17 @@
 <script lang="ts">
-	import { order } from '../../store/stores.svelte';
+	import { orderLines } from '../../store/stores.svelte';
 	import { Order } from '../../data/entities';
 	import { storeOrder } from '../../data/services';
 
 	import { scale, fly } from 'svelte/transition';
 
-	const submit = async () => {
-		if (order.value.productCount === 0) return;
-		const result = await storeOrder(order.value);
-		order.value = new Order();
+	const order = $derived(new Order(orderLines.value));
+
+	const submit = async (event: MouseEvent) => {
+		event.preventDefault();
+		if (order.productCount === 0) return;
+		const result = await storeOrder(order);
+		orderLines.value = []; // empty cart
 		location.href = `/summary/${result.id}`; // redirect to /summary/{id}
 	};
 </script>
@@ -26,7 +29,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each order.value.orderLines as line}
+				{#each order.orderLines as line}
 					<tr>
 						<td>{line.quantity}</td>
 						<td>{line.product.name}</td>
@@ -40,7 +43,7 @@
 					<th class="text-end" colSpan="3">Total:</th>
 					<th class="text-end">
 						<span style="display: inline-block" in:fly|global={{ y: 25, duration: 2000 }}>
-							${order.value.total.toFixed(2)}
+							${order.total.toFixed(2)}
 						</span>
 					</th>
 				</tr>

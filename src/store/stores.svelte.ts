@@ -1,4 +1,4 @@
-import { type Product, Order } from '../data/entities';
+import type { Product, OrderLine } from '../data/entities';
 
 const getProductsStore = () => {
 	let _products: Product[] = $state([]);
@@ -13,18 +13,18 @@ const getProductsStore = () => {
 	};
 };
 
-const getOrderStore = () => {
-	let _order = $state(new Order());
+const getOrderLineStore = () => {
+	let _orderLines: OrderLine[] = $state([]);
 
 	return {
 		get value() {
-			return _order;
+			return _orderLines;
 		},
-		set value(newOrder: Order) {
-			_order = newOrder;
+		set value(newOrderLines: OrderLine[]) {
+			_orderLines = newOrderLines;
 		}
 	};
 };
 
 export const products = getProductsStore();
-export const order = getOrderStore();
+export const orderLines = getOrderLineStore();

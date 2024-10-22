@@ -6,7 +6,7 @@ This is a simple shopping demo app, based on the same Angular/React/Vue.js examp
 
 - Front-end: (`/src`)
   - [TypeScript](https://www.typescriptlang.org/)
-  - Component framework: [Svelte 5](https://svelte.dev/) (updated with new syntax and runes)
+  - Component framework: [Svelte 5](https://svelte.dev/) (note: upgraded to use runes and new syntax, although the animations are a bit broken - fix TBD)
   - Application framework: [SvelteKit 2](https://kit.svelte.dev/)
   - Static site generation: [@sveltejs/adapter-static](https://www.npmjs.com/package/@sveltejs/adapter-static)
   - CSS styles: [Bootstrap 5](https://getbootstrap.com/)
@@ -31,19 +31,29 @@ The Svelte app has the following routes:
 
 | Route           | Page                                     |
 | --------------- | ---------------------------------------- |
-| `/`             | Index (redirect to `/products`)          |
+| `/`             | Index (will redirect to `/products`)     |
 | `/products`     | Browse and add products to shopping cart |
 | `/order`        | View and checkout order                  |
 | `/summary/{id}` | Order result                             |
+
+### The Application Flow
+
+1. When the app is opened at `/`, it will immediately redirect to `/products`.
+2. `/products` loads the list of products from an API service, save them in the global state array `products` and display the categories and items.
+3. The user can filter items using the category buttons.
+4. When the user clicks `Add To Cart` on any items, it will be added to the cart (global state array `orderLines`).
+5. When the user clicks `Submit Order` on `/products`, the app will redirect to `/order`, whcih will show the detail of the order.
+6. When the user clicks `Submit Order` on `/order`, the app will send the order to an API service and get the order ID.
+7. After the order is "sent", the app will redirect to `/summary/[id]` as the result.
 
 ## Backend APIs
 
 The backend creates two RESTful-like APIs:
 
-| API                 | Function                                 |
-| ------------------- | ---------------------------------------- |
-| GET `/api/products` | Query and return product data            |
-| POST `/api/orders`  | Write order data and return new order ID |
+| API                 | Function                                         |
+| ------------------- | ------------------------------------------------ |
+| GET `/api/products` | Query DB and return product data                 |
+| POST `/api/orders`  | Write order data into DB and return new order ID |
 
 Adam Freeman's original projects use [`json-server`](https://github.com/typicode/json-server) on an Express server as mock API services. I keep the input/output spec of the services for the sake of demonstration. Right now, like all the original examples, the app only reads product lists and write order data. The `Axios` package used in the original examples is also replaced with `fetch`.
 

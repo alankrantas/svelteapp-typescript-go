@@ -6,11 +6,11 @@
 	import { fade, slide } from 'svelte/transition';
 
 	import { type PageData } from './$types';
-	import { type OrderLine } from '../../data/entities';
-	import { products, order } from '../../store/stores.svelte';
+	import { Order, type OrderLine } from '../../data/entities';
+	import { products, orderLines } from '../../store/stores.svelte';
 
 	let { data }: { data: PageData } = $props();
-	products.value = data.products; // load products data returned by page.ts
+	products.value = data.products; // load product data returned by page.ts
 
 	let selectedCategory = $state('All');
 
@@ -24,13 +24,14 @@
 	};
 
 	const handleAddToCart = (orderLine: OrderLine) => {
-		order.value.addProduct(orderLine.product, orderLine.quantity);
-		order.value = order.value;
+		const order = new Order(orderLines.value);
+		order.addProduct(orderLine.product, orderLine.quantity);
+		orderLines.value = order.orderLines;
 	};
 </script>
 
 <div>
-	<Header order={order.value} />
+	<Header />
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-3 p-2" in:fade|global={{ duration: 500 }}>

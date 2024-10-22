@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { type Order } from '../data/entities';
+	import { orderLines } from '../store/stores.svelte';
+	import { Order } from '../data/entities';
 
 	import { fade, fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 
-	let { order }: { order: Order } = $props();
+	const order = $derived(new Order(orderLines.value));
 
 	const displayText1 = $derived(
 		order.productCount != 0 ? `${order.productCount} product(s), ` : '(No Selection)'
