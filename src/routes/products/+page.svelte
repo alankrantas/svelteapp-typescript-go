@@ -19,15 +19,13 @@
 		products.value.filter((p) => selectedCategory === 'All' || selectedCategory === p.category)
 	);
 
-	const handelSelectCategory = (event: CustomEvent<string>) => {
-		selectedCategory = event.detail;
+	const handleSelectCategory = (category: string) => {
+		selectedCategory = category;
 	};
 
-	const handelAddToCart = (event: CustomEvent<OrderLine>) => {
-		const orderLine = event.detail;
-		const orderValue = order.value;
-		orderValue.addProduct(orderLine.product, orderLine.quantity);
-		order.value = orderValue;
+	const handleAddToCart = (orderLine: OrderLine) => {
+		order.value.addProduct(orderLine.product, orderLine.quantity);
+		order.value = order.value;
 	};
 </script>
 
@@ -36,12 +34,12 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-3 p-2" in:fade|global={{ duration: 500 }}>
-				<CategoryList {categories} {selectedCategory} on:selectCategory={handelSelectCategory} />
+				<CategoryList {categories} {selectedCategory} {handleSelectCategory} />
 			</div>
 			<div class="col-9 p-2">
 				{#each filteredProducts as product}
 					<div transition:slide={{ duration: 500 }}>
-						<ProductItem {product} on:addToCart={handelAddToCart} />
+						<ProductItem {product} {handleAddToCart} />
 					</div>
 				{/each}
 			</div>

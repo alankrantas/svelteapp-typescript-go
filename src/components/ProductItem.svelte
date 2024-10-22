@@ -1,15 +1,13 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
 	import { type Product, OrderLine } from '../data/entities';
 
-	const dispatch = createEventDispatcher<{ addToCart: OrderLine }>();
+	interface Props {
+		product: Product;
+		handleAddToCart: (orderLine: OrderLine) => void;
+	}
 
-	let { product }: { product: Product } = $props();
+	let { product, handleAddToCart }: Props = $props();
 	let quantity = $state('1');
-
-	const addToCart = () => {
-		dispatch('addToCart', new OrderLine(product, Number(quantity)));
-	};
 </script>
 
 <div class="card m-1 p-1 bg-light">
@@ -21,7 +19,12 @@
 	</h4>
 	<div class="card-text bg-white p-1">
 		{product.description}
-		<button class="btn btn-success btn-sm float-end" onclick={addToCart}> Add To Cart </button>
+		<button
+			class="btn btn-success btn-sm float-end"
+			onclick={() => handleAddToCart(new OrderLine(product, Number(quantity)))}
+		>
+			Add To Cart
+		</button>
 		<select class="form-control-inline float-end m-1" bind:value={quantity}>
 			<option>1</option>
 			<option>2</option>
