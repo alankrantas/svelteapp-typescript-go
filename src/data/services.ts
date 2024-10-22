@@ -9,11 +9,18 @@ const api = {
 };
 
 export const loadProducts = async (): Promise<Product[]> => {
-	return dev ? mock_products : await (await fetch(api.loadProductsPath)).json();
+	if (dev) return mock_products;
+
+	try {
+		return await (await fetch(api.loadProductsPath)).json();
+	} catch {
+		return [];
+	}
 };
 
 export const storeOrder = async (order: Order): Promise<Result> => {
 	if (dev) return { id: 42 };
+
 	const orderData: OrderData = {
 		lines: [...order.orderLines.values()].map((ol) => ({
 			productId: ol.product.id,
@@ -21,14 +28,19 @@ export const storeOrder = async (order: Order): Promise<Result> => {
 			quantity: ol.quantity
 		}))
 	};
-	const result: Result = await (
-		await fetch(api.storeOrderPath, {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json; charset=UTF-8'
-			},
-			body: JSON.stringify(orderData)
-		})
-	).json();
-	return result;
+
+	try {
+		const result: Result = await (
+			await fetch(api.storeOrderPath, {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json; charset=UTF-8'
+				},
+				body: JSON.stringify(orderData)
+			})
+		).json();
+		return result;
+	} catch {
+		return { id: -1 };
+	}
 };
