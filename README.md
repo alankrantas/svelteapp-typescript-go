@@ -6,7 +6,7 @@ This is a simple shopping demo app, based on the same Angular/React/Vue.js examp
 
 - Front-end: (`/src`)
   - [TypeScript](https://www.typescriptlang.org/)
-  - Component framework: [Svelte 5](https://svelte.dev/) (note: upgraded to use runes and new syntax, although the animations are a bit broken - fix TBD)
+  - Component framework: [Svelte 5](https://svelte.dev/) (upgraded to Svelte 5 syntax, although the animations are a bit broken - fix TBD)
   - Application framework: [SvelteKit 2](https://kit.svelte.dev/)
   - Static site generation: [@sveltejs/adapter-static](https://www.npmjs.com/package/@sveltejs/adapter-static)
   - CSS styles: [Bootstrap 5](https://getbootstrap.com/)

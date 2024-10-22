@@ -1,30 +1,17 @@
 import type { Product, OrderLine } from '../data/entities';
 
-const getProductsStore = () => {
-	let _products: Product[] = $state([]);
+const getStore = <T>(v: T) => {
+	let _v: T = $state(v);
 
 	return {
-		get value() {
-			return _products;
+		get value(): T {
+			return _v;
 		},
-		set value(newProducts: Product[]) {
-			_products = newProducts;
+		set value(v: T) {
+			_v = v;
 		}
 	};
 };
 
-const getOrderLineStore = () => {
-	let _orderLines: OrderLine[] = $state([]);
-
-	return {
-		get value() {
-			return _orderLines;
-		},
-		set value(newOrderLines: OrderLine[]) {
-			_orderLines = newOrderLines;
-		}
-	};
-};
-
-export const products = getProductsStore();
-export const orderLines = getOrderLineStore();
+export const products = getStore<Product[]>([]);
+export const orderLines = getStore<OrderLine[]>([]);
