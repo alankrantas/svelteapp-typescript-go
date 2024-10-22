@@ -1,30 +1,30 @@
 import { type Product, Order } from '../data/entities';
 
-let products: Product[] = $state([]);
-let order: Order | null = $state(null);
-
-export const getProductsStore = (newProducts?: Product[]) => {
-	if (newProducts) products = newProducts;
+const getProductsStore = () => {
+	let _products: Product[] = $state([]);
 
 	return {
 		get value() {
-			return products;
+			return _products;
 		},
 		set value(newProducts: Product[]) {
-			products = newProducts;
+			_products = newProducts;
 		}
 	};
 };
 
-export const getOrderStore = () => {
-	if (!order) order = new Order();
+const getOrderStore = () => {
+	let _order = $state(new Order());
 
 	return {
-		get value(): Order | null {
-			return order;
+		get value() {
+			return _order;
 		},
 		set value(newOrder: Order) {
-			order = newOrder;
+			_order = newOrder;
 		}
 	};
 };
+
+export const products = getProductsStore();
+export const order = getOrderStore();

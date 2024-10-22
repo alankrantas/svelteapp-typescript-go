@@ -1,8 +1,7 @@
 <script lang="ts">
-	import type { SelectCategoryEvent } from '../data/entities';
 	import { createEventDispatcher } from 'svelte';
 
-	const dispatch = createEventDispatcher<{ selectCategory: SelectCategoryEvent }>();
+	const dispatch = createEventDispatcher<{ selectCategory: string }>();
 
 	interface Props {
 		categories: string[];
@@ -17,7 +16,7 @@
 	};
 
 	const handleSelectedCategory = (category: string) => {
-		dispatch('selectCategory', { category: category });
+		dispatch('selectCategory', category);
 	};
 </script>
 

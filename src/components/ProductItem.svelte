@@ -1,17 +1,14 @@
 <script lang="ts">
-	import { getOrderStore } from '../store/stores.svelte';
-	import type { Product } from '../data/entities';
+	import { createEventDispatcher } from 'svelte';
+	import { type Product, OrderLine } from '../data/entities';
 
-	const order = getOrderStore();
+	const dispatch = createEventDispatcher<{ addToCart: OrderLine }>();
 
 	let { product }: { product: Product } = $props();
 	let quantity = $state('1');
 
 	const addToCart = () => {
-		if (order.value) {
-			order.value.addProduct(product, Number(quantity));
-			order.value = order.value;
-		}
+		dispatch('addToCart', new OrderLine(product, Number(quantity)));
 	};
 </script>
 

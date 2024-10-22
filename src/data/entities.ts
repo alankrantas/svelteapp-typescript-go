@@ -67,7 +67,3 @@ export class Order {
 export interface Result {
 	id: number;
 }
-
-export interface SelectCategoryEvent {
-	category: string;
-}
