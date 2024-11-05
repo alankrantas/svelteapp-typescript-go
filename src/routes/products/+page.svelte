@@ -2,7 +2,6 @@
 	import ProductItem from '../../components/ProductItem.svelte';
 	import CategoryList from '../../components/CategoryList.svelte';
 	import Header from '../../components/Header.svelte';
-
 	import { fade, slide } from 'svelte/transition';
 
 	import { type PageData } from './$types';

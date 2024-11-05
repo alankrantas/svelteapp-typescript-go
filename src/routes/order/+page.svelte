@@ -2,7 +2,6 @@
 	import { orderLines } from '../../store/stores.svelte';
 	import { Order } from '../../data/entities';
 	import { storeOrder } from '../../data/services';
-
 	import { scale, fly } from 'svelte/transition';
 
 	const order = $derived(new Order(orderLines.value));

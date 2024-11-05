@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-
 	import { fly } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
 
