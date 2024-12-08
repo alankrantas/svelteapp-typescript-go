@@ -6,19 +6,19 @@
 
   import { type PageData } from "./$types";
   import { Order, type OrderLine } from "$lib/type/entities";
-  import { products, orderLines } from "$lib/store/GlobalStates.svelte";
+  import { orderLines } from "$lib/store/globalStates.svelte";
 
   let { data }: { data: PageData } = $props();
-  products.value = data.products; // load product data returned by page.ts
 
+  let products = $state(data.products); // load product data returned by page.ts
   let selectedCategory = $state("All");
 
-  const categories = $derived([
+  let categories = $derived([
     "All",
-    ...new Set(products.value.map((p) => p.category)),
+    ...new Set(products.map((p) => p.category)),
   ]);
   let filteredProducts = $derived(
-    products.value.filter(
+    products.filter(
       (p) => selectedCategory === "All" || selectedCategory === p.category
     )
   );

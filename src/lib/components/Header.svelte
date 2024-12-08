@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { orderLines } from "$lib/store/GlobalStates.svelte";
+  import { orderLines } from "$lib/store/globalStates.svelte";
   import { Order } from "$lib/type/entities";
   import { fade } from "svelte/transition";
 

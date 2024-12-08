@@ -13,7 +13,14 @@
   <title>Sports Store Demo App</title>
 </svelte:head>
 
-{@render children?.()}
+<svelte:boundary>
+  {@render children?.()}
+
+  {#snippet failed(error: any, reset)}
+    <h1>Svelte app rendering error</h1>
+    <h4>{error?.message}</h4>
+  {/snippet}
+</svelte:boundary>
 
 <style>
   :global(body) {

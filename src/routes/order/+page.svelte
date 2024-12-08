@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { orderLines } from "$lib/store/GlobalStates.svelte";
+  import { orderLines } from "$lib/store/globalStates.svelte";
   import { Order } from "$lib/type/entities";
   import { storeOrder } from "$lib/api/services";
   import { scale, fly } from "svelte/transition";
@@ -11,7 +11,7 @@
     if (order.productCount === 0) return;
     const result = await storeOrder(order);
     orderLines.value = []; // empty cart
-    location.href = `/summary/${result.id}`; // redirect to /summary/{id}
+    window.location.href = `/summary/${result.id}`; // redirect to /summary/{id}
   };
 </script>
 

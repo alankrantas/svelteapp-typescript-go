@@ -1,17 +1,16 @@
-import type { Product, OrderLine } from '../data/entities';
+import type { OrderLine } from '$lib/type/entities';
 
 const getStore = <T>(v: T) => {
-	let _v: T = $state(v);
+    let _v: T = $state(v);
 
-	return {
-		get value(): T {
-			return _v;
-		},
-		set value(v: T) {
-			_v = v;
-		}
-	};
+    return {
+        get value(): T {
+            return _v;
+        },
+        set value(v: T) {
+            _v = v;
+        }
+    };
 };
 
-export const products = getStore<Product[]>([]);
 export const orderLines = getStore<OrderLine[]>([]);
