@@ -17,7 +17,7 @@ This is a simple shopping demo app, based on the same Angular/React/Vue.js examp
 - Database: (`/db`)
   - [SQLite](https://www.sqlite.org/index.html)
 
-The project comes with a [Dockerfile](https://github.com/alankrantas/svelteapp-typescript-go/blob/main/Dockerfile) that can create a single small container with multi-stage builds (image size less than 25 MB) and also support to be opened in [DevContainer](https://code.visualstudio.com/docs/devcontainers/containers)/[CodeSpace](https://github.com/features/codespaces).
+The project comes with a [Dockerfile](https://github.com/alankrantas/svelteapp-typescript-go/blob/main/Dockerfile) that can create a single small container with multi-stage builds (image size ~25 MB) and also support to be opened in [DevContainer](https://code.visualstudio.com/docs/devcontainers/containers)/[CodeSpace](https://github.com/features/codespaces).
 
 A [Github Action workflow](https://github.com/alankrantas/svelteapp-typescript-go/blob/main/.github/workflows/dependabot-test.yml) is created to run build test for dependabot's pull-requests for dependency updates.
 
@@ -39,7 +39,7 @@ The Svelte app has the following routes:
 ### The Application Flow
 
 1. When the app is opened at `/`, it will immediately redirect to `/products`.
-2. `/products` loads the list of products from an API service, save them in the global state array `products` and display the categories and items.
+2. `/products` loads the list of products from an API service and display the categories and items.
 3. The user can filter items using the category buttons.
 4. When the user clicks `Add To Cart` on any items, it will be added to the cart (global state array `orderLines`).
 5. When the user clicks `Submit Order` on `/products`, the app will redirect to `/order`, whcih will show the detail of the order.
