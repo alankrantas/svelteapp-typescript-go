@@ -1,9 +1,10 @@
 <script lang="ts">
+  import { fade, slide } from "svelte/transition";
+
   import ProductItem from "$lib/components/ProductItem.svelte";
   import CategoryList from "$lib/components/CategoryList.svelte";
   import Header from "$lib/components/Header.svelte";
-  import { fade, slide } from "svelte/transition";
-
+  
   import { type PageData } from "./$types";
   import { Order, type OrderLine } from "$lib/type/entities";
   import { orderLines } from "$lib/store/globalStates.svelte";
@@ -28,9 +29,9 @@
   };
 
   const handleAddToCart = (orderLine: OrderLine) => {
-    const order = new Order(orderLines.value);
+    const order = new Order(orderLines.current);
     order.addProduct(orderLine.product, orderLine.quantity);
-    orderLines.value = order.orderLines;
+    orderLines.current = order.orderLines;
   };
 </script>
 

@@ -22,7 +22,7 @@ export const storeOrder = async (order: Order): Promise<Result> => {
     if (dev) return { id: 42 };
 
     const orderData: OrderData = {
-        lines: [...order.orderLines.values()].map((ol) => ({
+        lines: [...order.orderLines.currents()].map((ol) => ({
             productId: ol.product.id,
             productName: ol.product.name,
             quantity: ol.quantity

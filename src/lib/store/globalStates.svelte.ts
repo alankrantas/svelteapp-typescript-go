@@ -1,14 +1,14 @@
 import type { OrderLine } from '$lib/type/entities';
 
-const getStore = <T>(v: T) => {
-    let _v: T = $state(v);
+const getStore = <T>(value: T) => {
+    let _store: T = $state(value);
 
     return {
-        get value(): T {
-            return _v;
+        get current(): T {
+            return _store;
         },
-        set value(v: T) {
-            _v = v;
+        set current(value: T) {
+            _store = value;
         }
     };
 };

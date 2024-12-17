@@ -1,16 +1,17 @@
 <script lang="ts">
+  import { scale, fly } from "svelte/transition";
+
   import { orderLines } from "$lib/store/globalStates.svelte";
   import { Order } from "$lib/type/entities";
   import { storeOrder } from "$lib/api/services";
-  import { scale, fly } from "svelte/transition";
 
-  const order = $derived(new Order(orderLines.value));
+  const order = $derived(new Order(orderLines.current));
 
   const submit = async (event: MouseEvent) => {
     event.preventDefault();
     if (order.productCount === 0) return;
     const result = await storeOrder(order);
-    orderLines.value = []; // empty cart
+    orderLines.current = []; // empty cart
     window.location.href = `/summary/${result.id}`; // redirect to /summary/{id}
   };
 </script>

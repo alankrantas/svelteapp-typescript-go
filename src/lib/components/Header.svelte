@@ -1,9 +1,10 @@
 <script lang="ts">
-  import { orderLines } from "$lib/store/globalStates.svelte";
-  import { Order } from "$lib/type/entities";
   import { fade } from "svelte/transition";
 
-  const order = $derived(new Order(orderLines.value));
+  import { orderLines } from "$lib/store/globalStates.svelte";
+  import { Order } from "$lib/type/entities";
+
+  const order = $derived(new Order(orderLines.current));
 
   const displayText = $derived(
     (order.productCount != 0
