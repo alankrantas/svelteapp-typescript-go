@@ -44,7 +44,7 @@
     "type": "module",
     "dependencies": {
         "@fontsource/open-sans": "^5.2.5",
-        "bootstrap": "^5.3.5"
+        "bootstrap": "^5.3.6"
     },
     "resolutions": {
         "picomatch": "^4.0.2"
