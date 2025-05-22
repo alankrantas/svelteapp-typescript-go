@@ -9,13 +9,13 @@ on:
 permissions:
   pull-requests: write
   issues: write
-  repository-projects: write
+  contents: read
+  id-token: write
 
 jobs:
-  Dependabot:
+  test-build:
+    if: github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
-
-    if: ${{ github.actor == 'dependabot[bot]' }}
 
     steps:
       - name: Checkout Repo
