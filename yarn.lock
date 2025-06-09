@@ -135,10 +135,10 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.25.2.tgz#839f72c2decd378f86b8f525e1979a97b920c67d"
   integrity sha512-kM3HKb16VIXZyIeVrM1ygYmZBKybX8N4p754bw390wGO3Tf2j4L2/WYL+4suWujpgf6GBYs3jv7TyUivdd05JA==
 
-"@fontsource/open-sans@^5.2.5":
-  version "5.2.5"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.2.5.tgz#7d83383a0ca00e1ae192541273befcbcaf98fbdd"
-  integrity sha512-f0Ww6H+LB6GXA8UCgqs90h4djVttu3quH/1+wkfUY8b09mG1ESn4ACRBHYY78bsoeDXpaCyZh7eoGROBWplvAQ==
+"@fontsource/open-sans@^5.2.6":
+  version "5.2.6"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.2.6.tgz#e3f4db69f294426ac22c9a7dd2118c2b26ea5992"
+  integrity sha512-mnfnUmBWQ+J220gqbibbzmKcc1kawV+lb3/Pspzu+Opnxza12oUffIg0ufG8g+3j1fnSznEWgyNV40MjtmJj6g==
 
 "@jridgewell/gen-mapping@^0.3.5":
   version "0.3.8"
