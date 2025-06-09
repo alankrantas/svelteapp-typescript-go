@@ -486,10 +486,10 @@ esm-env@^1.2.1, esm-env@^1.2.2:
   resolved "https://registry.yarnpkg.com/esm-env/-/esm-env-1.2.2.tgz#263c9455c55861f41618df31b20cb571fc20b75e"
   integrity sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA==
 
-esrap@^1.4.6:
-  version "1.4.6"
-  resolved "https://registry.yarnpkg.com/esrap/-/esrap-1.4.6.tgz#d203ce1ee397aa2a6a716a3a2dc8619f83208c6a"
-  integrity sha512-F/D2mADJ9SHY3IwksD4DAXjTt7qt7GWUf3/8RhCNWmC/67tyb55dpimHmy7EplakFaflV0R/PC+fdSPqrRHAQw==
+esrap@^1.4.8:
+  version "1.4.9"
+  resolved "https://registry.yarnpkg.com/esrap/-/esrap-1.4.9.tgz#350362c55d8c83b263edfb0fd48dac95162167de"
+  integrity sha512-3OMlcd0a03UGuZpPeUC1HxR3nA23l+HEyCiZw3b3FumJIN9KphoGzDJKMXI1S72jVS1dsenDyQC0kJlO1U9E1g==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.15"
 
@@ -779,10 +779,10 @@ svelte-preprocess@^6.0.3:
   resolved "https://registry.yarnpkg.com/svelte-preprocess/-/svelte-preprocess-6.0.3.tgz#fdc1f9dc41b6f22bf8b1f059e9f21eaaae181eeb"
   integrity sha512-PLG2k05qHdhmRG7zR/dyo5qKvakhm8IJ+hD2eFRQmMLHp7X3eJnjeupUtvuRpbNiF31RjVw45W+abDwHEmP5OA==
 
-svelte@^5.33.13:
-  version "5.33.13"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.33.13.tgz#8305a003dc8fd15936af8a81785cb112e7000847"
-  integrity sha512-uT3BAPpHGaJqpOgdwJwIK7P4JkBkSS0vylbaRXxQjt1gr+DZ9BiPkhmbZw3ql8LJofUyz5XyrzzQDgQQdfP86Q==
+svelte@^5.33.18:
+  version "5.33.18"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.33.18.tgz#883d866d809c1fa5104c0c5669bbef03e5c43b12"
+  integrity sha512-GVAhi8vi8pGne/wlEdnfWIJvSR9eKvEknxjfL5Sr8gQALiyk8Ey+H0lhUYLpjW+MrqgH9h4dgh2NF6/BTFprRg==
   dependencies:
     "@ampproject/remapping" "^2.3.0"
     "@jridgewell/sourcemap-codec" "^1.5.0"
@@ -793,7 +793,7 @@ svelte@^5.33.13:
     axobject-query "^4.1.0"
     clsx "^2.1.1"
     esm-env "^1.2.1"
-    esrap "^1.4.6"
+    esrap "^1.4.8"
     is-reference "^3.0.3"
     locate-character "^3.0.0"
     magic-string "^0.30.11"
