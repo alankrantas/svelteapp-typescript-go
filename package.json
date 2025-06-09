@@ -43,7 +43,7 @@
     },
     "type": "module",
     "dependencies": {
-        "@fontsource/open-sans": "^5.2.5",
+        "@fontsource/open-sans": "^5.2.6",
         "bootstrap": "^5.3.6"
     },
     "resolutions": {
