@@ -764,10 +764,10 @@ strtok3@^7.0.0:
     "@tokenizer/token" "^0.3.0"
     peek-readable "^5.1.3"
 
-svelte-check@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/svelte-check/-/svelte-check-4.2.1.tgz#d332582f24b40967f3c56b8e2d74c306044cecdf"
-  integrity sha512-e49SU1RStvQhoipkQ/aonDhHnG3qxHSBtNfBRb9pxVXoa+N7qybAo32KgA9wEb2PCYFNaDg7bZCdhLD1vHpdYA==
+svelte-check@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/svelte-check/-/svelte-check-4.2.2.tgz#9cf6f98fc0a9142869afe139d1294fd8d8d3aa01"
+  integrity sha512-1+31EOYZ7NKN0YDMKusav2hhEoA51GD9Ws6o//0SphMT0ve9mBTsTUEX7OmDMadUP3KjNHsSKtJrqdSaD8CrGQ==
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.25"
     chokidar "^4.0.1"
