@@ -306,24 +306,24 @@
     sirv "^3.0.0"
     vitefu "^1.0.6"
 
-"@sveltejs/vite-plugin-svelte-inspector@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte-inspector/-/vite-plugin-svelte-inspector-4.0.1.tgz#2f99a4a593bb910d1492f6c00a042b521c07147e"
-  integrity sha512-J/Nmb2Q2y7mck2hyCX4ckVHcR5tu2J+MtBEQqpDrrgELZ2uvraQcK/ioCV61AqkdXFgriksOKIceDcQmqnGhVw==
+"@sveltejs/vite-plugin-svelte-inspector@^5.0.0-next.1":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte-inspector/-/vite-plugin-svelte-inspector-5.0.0.tgz#6daf8fb9fced43390614caf449409371847ba655"
+  integrity sha512-iwQ8Z4ET6ZFSt/gC+tVfcsSBHwsqc6RumSaiLUkAurW3BCpJam65cmHw0oOlDMTO0u+PZi9hilBRYN+LZNHTUQ==
   dependencies:
-    debug "^4.3.7"
+    debug "^4.4.1"
 
-"@sveltejs/vite-plugin-svelte@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-5.1.0.tgz#5c1df403a23a7bfc5b856621c3234de3e8946121"
-  integrity sha512-wojIS/7GYnJDYIg1higWj2ROA6sSRWvcR1PO/bqEyFr/5UZah26c8Cz4u0NaqjPeVltzsVpt2Tm8d2io0V+4Tw==
+"@sveltejs/vite-plugin-svelte@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-6.0.0.tgz#4a1fbbac98f1eac46c7689515de3cd6ae4638499"
+  integrity sha512-mma5GJ23pYiWpTNbN//g9XI3Hfob3aAlXPP42qRtvjgTAU6pfJyLyNPTdLjFuj+jfC9JslP4J3AkeiJNhjtLLA==
   dependencies:
-    "@sveltejs/vite-plugin-svelte-inspector" "^4.0.1"
+    "@sveltejs/vite-plugin-svelte-inspector" "^5.0.0-next.1"
     debug "^4.4.1"
     deepmerge "^4.3.1"
     kleur "^4.1.5"
     magic-string "^0.30.17"
-    vitefu "^1.0.6"
+    vitefu "^1.1.1"
 
 "@tokenizer/token@^0.3.0":
   version "0.3.0"
@@ -416,7 +416,7 @@ crypto-random-string@^4.0.0:
   dependencies:
     type-fest "^1.0.1"
 
-debug@^4.3.7, debug@^4.4.1:
+debug@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.4.1.tgz#e5a8bc6cbc4c6cd3e64308b0693a3d4fa550189b"
   integrity sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ==
@@ -872,10 +872,10 @@ vite@^6.3.5:
   optionalDependencies:
     fsevents "~2.3.3"
 
-vitefu@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/vitefu/-/vitefu-1.0.6.tgz#3d2534621ea95081e6fbf4c0d8db9a292357a41b"
-  integrity sha512-+Rex1GlappUyNN6UfwbVZne/9cYC4+R2XDk9xkNXBKMw6HQagdX9PgZ8V2v1WUSK1wfBLp7qbI1+XSNIlB1xmA==
+vitefu@^1.0.6, vitefu@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/vitefu/-/vitefu-1.1.1.tgz#c39b7e4c91bf2f6c590fb96e0758f394dff5795b"
+  integrity sha512-B/Fegf3i8zh0yFbpzZ21amWzHmuNlLlmJT6n7bu5e+pCHUKQIfXSYokrqOBGEMMe9UG2sostKQF9mml/vYaWJQ==
 
 yarn-upgrade-all@^0.7.5:
   version "0.7.5"
