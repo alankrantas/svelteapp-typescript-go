@@ -287,10 +287,10 @@
   resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-3.0.8.tgz#f23ee99a9678dbaec58b79d183bc3defbfe99f1a"
   integrity sha512-YaDrquRpZwfcXbnlDsSrBQNCChVOT9MGuSg+dMAyfsAa1SmiAhrA5jUYUiIMC59G92kIbY/AaQOWcBdq+lh+zg==
 
-"@sveltejs/kit@^2.22.2":
-  version "2.22.2"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.22.2.tgz#456048db5aa4366aa87aa756ac6a76562ff193ec"
-  integrity sha512-2MvEpSYabUrsJAoq5qCOBGAlkICjfjunrnLcx3YAk2XV7TvAIhomlKsAgR4H/4uns5rAfYmj7Wet5KRtc8dPIg==
+"@sveltejs/kit@^2.22.5":
+  version "2.22.5"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.22.5.tgz#bdac8049698fc3965be23563f8f20b13e9541d19"
+  integrity sha512-l5i+LcDaoymD2mg5ziptnHmzzF79+c9twJiDoLWAPKq7afMEe4mvGesJ+LVtm33A92mLzd2KUHgtGSqTrvfkvg==
   dependencies:
     "@sveltejs/acorn-typescript" "^1.0.5"
     "@types/cookie" "^0.6.0"
@@ -304,7 +304,6 @@
     sade "^1.8.1"
     set-cookie-parser "^2.6.0"
     sirv "^3.0.0"
-    vitefu "^1.0.6"
 
 "@sveltejs/vite-plugin-svelte-inspector@^5.0.0-next.1":
   version "5.0.0"
@@ -872,7 +871,7 @@ vite@^6.3.5:
   optionalDependencies:
     fsevents "~2.3.3"
 
-vitefu@^1.0.6, vitefu@^1.1.1:
+vitefu@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/vitefu/-/vitefu-1.1.1.tgz#c39b7e4c91bf2f6c590fb96e0758f394dff5795b"
   integrity sha512-B/Fegf3i8zh0yFbpzZ21amWzHmuNlLlmJT6n7bu5e+pCHUKQIfXSYokrqOBGEMMe9UG2sostKQF9mml/vYaWJQ==
