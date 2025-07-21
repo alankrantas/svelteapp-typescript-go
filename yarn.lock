@@ -287,10 +287,10 @@
   resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-3.0.8.tgz#f23ee99a9678dbaec58b79d183bc3defbfe99f1a"
   integrity sha512-YaDrquRpZwfcXbnlDsSrBQNCChVOT9MGuSg+dMAyfsAa1SmiAhrA5jUYUiIMC59G92kIbY/AaQOWcBdq+lh+zg==
 
-"@sveltejs/kit@^2.22.5":
-  version "2.22.5"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.22.5.tgz#bdac8049698fc3965be23563f8f20b13e9541d19"
-  integrity sha512-l5i+LcDaoymD2mg5ziptnHmzzF79+c9twJiDoLWAPKq7afMEe4mvGesJ+LVtm33A92mLzd2KUHgtGSqTrvfkvg==
+"@sveltejs/kit@^2.25.1":
+  version "2.25.1"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.25.1.tgz#8d01ed7da61ed8bc42f4230eef688555fc17ec71"
+  integrity sha512-8H+fxDEp7Xq6tLFdrGdS5fLu6ONDQQ9DgyjboXpChubuFdfH9QoFX09ypssBpyNkJNZFt9eW3yLmXIc9CesPCA==
   dependencies:
     "@sveltejs/acorn-typescript" "^1.0.5"
     "@types/cookie" "^0.6.0"
