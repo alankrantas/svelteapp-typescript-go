@@ -30,7 +30,7 @@
     },
     "devDependencies": {
         "@sveltejs/adapter-static": "^3.0.8",
-        "@sveltejs/kit": "^2.25.1",
+        "@sveltejs/kit": "^2.26.1",
         "@sveltejs/vite-plugin-svelte": "^6.1.0",
         "globals": "^16.3.0",
         "open-cli": "^8.0.0",
